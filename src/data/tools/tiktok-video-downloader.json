@@ -1,0 +1,135 @@
+{
+  "slug": "tiktok-video-downloader",
+  "route": "/tiktok-video-downloader",
+  "routing": "fixed",
+  "template": "video-downloader",
+  "toolType": "video",
+  "applicationCategory": "MultimediaApplication",
+  "updatedAt": "2026-07-28",
+  "title": "TikTok Video Downloader — Safe Public Video Saving",
+  "description": "Validate a public TikTok video URL and review rights-aware download options with rate limits, temporary processing and automatic cleanup.",
+  "h1": "TikTok Video Downloader",
+  "breadcrumb": "TikTok Video Downloader",
+  "badge": "Rights-aware by design",
+  "intro": "Validate a public TikTok video URL, preview its identity and review safe download options. Only save content you own or have permission to use.",
+  "useCases": [
+    {
+      "title": "Save your own published media",
+      "description": "Validate the canonical URL for a public video you created before requesting an eligible temporary download."
+    },
+    {
+      "title": "Handle licensed campaign assets",
+      "description": "Use a rights-confirmed workflow when a creator has explicitly authorized a marketer to retain a campaign deliverable."
+    },
+    {
+      "title": "Verify a video before processing",
+      "description": "Reject profile pages, unrelated domains and malformed identifiers before any media-source request is attempted."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Accepted canonical video URL",
+      "description": "A full HTTPS tiktok.com/@creator/video/123 URL can proceed to identity validation and rights confirmation."
+    },
+    {
+      "title": "Rejected profile or short link",
+      "description": "A creator profile, non-video TikTok path or unapproved redirect host is rejected instead of being treated as downloadable media."
+    }
+  ],
+  "tips": [
+    {
+      "title": "Confirm ownership or permission",
+      "description": "Technical availability never replaces copyright, creator consent or the license needed for reuse."
+    },
+    {
+      "title": "Inspect the preview identity",
+      "description": "Check the creator and video identifier before choosing any download option or storing a campaign asset."
+    },
+    {
+      "title": "Expect temporary delivery",
+      "description": "Validated media expires quickly and successful delivery consumes the temporary server copy rather than creating a library."
+    }
+  ],
+  "faqEyebrow": "Downloader FAQ",
+  "faqTitle": "Safe use, clearly explained",
+  "faqDescription": "Accepted URLs, rights boundaries, temporary retention and download availability.",
+  "faq": [
+    {
+      "question": "What URLs does the TikTok video downloader accept?",
+      "answer": "The validator accepts full HTTPS TikTok video URLs such as tiktok.com/@creator/video/123. Profile pages, short links and other domains are rejected."
+    },
+    {
+      "question": "Can I save any TikTok video?",
+      "answer": "No. You should only save content you own or have explicit permission to use. Availability can also be limited by privacy, removal, regional or platform restrictions."
+    },
+    {
+      "question": "Does TokLens keep downloaded videos?",
+      "answer": "No. Permanent user-media storage is prohibited. Validated media can only use temporary processing storage, expires within 15 minutes and is removed after delivery."
+    },
+    {
+      "question": "Why are download options currently unavailable?",
+      "answer": "TokLens enables downloads only after a verified media source and the returned bytes pass every security check. The current preview validates the video URL without scraping or inventing a media file."
+    },
+    {
+      "question": "How does TokLens protect the download service?",
+      "answer": "The service uses a TikTok domain whitelist, HTTPS-only URLs, request limits, small JSON request bodies, MP4 file signatures, size limits, random temporary filenames and cleanup controls."
+    }
+  ],
+  "relatedTools": [
+    {
+      "label": "TikTok Profile Viewer",
+      "href": "/tiktok-profile-viewer"
+    },
+    {
+      "label": "TikTok Video Viewer",
+      "href": "/viewer?mode=video"
+    },
+    {
+      "label": "TikTok Privacy Guides",
+      "href": "/blog"
+    }
+  ],
+  "keywords": [
+    "TikTok video downloader",
+    "save public TikTok video",
+    "TikTok URL validator",
+    "temporary media download"
+  ],
+  "ui": {
+    "safetyEyebrow": "Safety notice",
+    "safetyTitle": "Temporary processing, never a media library",
+    "safetyDescription": "TokLens does not permanently store user media, bypass private content controls or fetch arbitrary URLs. Download delivery remains disabled until a verified media source passes every file check.",
+    "safetyControls": [
+      {
+        "icon": "shield",
+        "title": "TikTok-only URL whitelist",
+        "description": "Only full HTTPS video URLs on tiktok.com and approved subdomains pass validation."
+      },
+      {
+        "icon": "gauge",
+        "title": "Request rate limits",
+        "description": "Preview requests are limited per anonymized client identifier to reduce abuse."
+      },
+      {
+        "icon": "file",
+        "title": "File validation",
+        "description": "Media must pass MIME type, declared length, size and MP4 signature checks."
+      },
+      {
+        "icon": "storage",
+        "title": "Isolated temporary storage",
+        "description": "Validated bytes use random server-generated names and restricted file permissions."
+      },
+      {
+        "icon": "clock",
+        "title": "Short retention",
+        "description": "Temporary media expires after a maximum of 15 minutes."
+      },
+      {
+        "icon": "trash",
+        "title": "Automatic cleanup",
+        "description": "Expired files are removed and successful delivery consumes the temporary copy."
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "slug": "tiktok-analytics",
+  "route": "/tiktok-analytics",
+  "routing": "fixed",
+  "template": "creator-analytics",
+  "toolType": "analytics",
+  "applicationCategory": "BusinessApplication",
+  "updatedAt": "2026-07-28",
+  "title": "TikTok Analytics — Estimated Creator Metrics",
+  "description": "Calculate transparent estimated creator metrics from a creator-authorized TikTok snapshot, with visible formulas, sources and sample boundaries.",
+  "h1": "TikTok Creator Analytics",
+  "breadcrumb": "TikTok Analytics",
+  "badge": "Transparent estimates",
+  "intro": "Enter an account to validate the input. Metrics are calculated only when a creator-authorized snapshot is available; missing data is never replaced with placeholder numbers.",
+  "useCases": [
+    {
+      "title": "Establish a recent content baseline",
+      "description": "Review average views and likes across a disclosed authorized post sample instead of relying on one memorable upload."
+    },
+    {
+      "title": "Document posting consistency",
+      "description": "Calculate posts per week from visible publication dates and a named observation window."
+    },
+    {
+      "title": "Review top posts with context",
+      "description": "Rank eligible posts by a disclosed view-based interaction formula while retaining sample size and capture time."
+    }
+  ],
+  "examples": [
+    {
+      "title": "First authorized snapshot",
+      "description": "A creator captures recent public-video fields once and receives timestamped estimates without claiming that a trend already exists."
+    },
+    {
+      "title": "Unavailable account sample",
+      "description": "When no authorized snapshot exists, every metric remains unavailable rather than using fabricated counts."
+    }
+  ],
+  "tips": [
+    {
+      "title": "Keep source labels visible",
+      "description": "Separate fields returned after creator authorization from averages and rates calculated by TokLens."
+    },
+    {
+      "title": "Compare equivalent samples",
+      "description": "Use comparable post counts, dates and post ages before interpreting a difference between two creator reviews."
+    },
+    {
+      "title": "Do not infer private outcomes",
+      "description": "Public video counts cannot prove watch-time retention, audience demographics, revenue or campaign conversions."
+    }
+  ],
+  "faqEyebrow": "Analytics FAQ",
+  "faqTitle": "Scope and limitations",
+  "faqDescription": "Creator authorization, transparent formulas, sample boundaries and unavailable private insights.",
+  "faq": [
+    {
+      "question": "What is TikTok creator analytics?",
+      "answer": "TokLens converts supported public profile and video fields from a creator-authorized snapshot into estimated metrics with visible formulas and sample boundaries."
+    },
+    {
+      "question": "Who is this analytics tool for?",
+      "answer": "It is primarily for creators reviewing their own authorized account. Marketers should use it only with creator authorization and should not present the estimates as first-party TikTok account analytics."
+    },
+    {
+      "question": "How are the analytics calculated?",
+      "answer": "Average views and likes use sampled post totals. Engagement uses likes, comments and shares divided by views. Posting frequency uses sampled posts over the observation period."
+    },
+    {
+      "question": "Is this official TikTok data?",
+      "answer": "The supported input fields can come from TikTok after creator authorization, but the displayed averages and rates are TokLens estimates, not official TikTok analytics. Private insights such as watch time and audience demographics are not inferred."
+    },
+    {
+      "question": "What are the limitations?",
+      "answer": "Results depend on public source availability, sample size and observation dates. Missing values stay unavailable rather than being treated as zero."
+    }
+  ],
+  "relatedTools": [
+    {
+      "label": "Engagement Rate Calculator",
+      "href": "/tiktok-engagement-rate-calculator"
+    },
+    {
+      "label": "TikTok Profile Viewer",
+      "href": "/tiktok-profile-viewer"
+    },
+    {
+      "label": "Analytics Methodology",
+      "href": "/blog/how-toklens-estimates-tiktok-engagement"
+    }
+  ],
+  "keywords": [
+    "TikTok analytics",
+    "creator analytics",
+    "TikTok average views",
+    "TikTok posting frequency"
+  ],
+  "ui": {
+    "searchButtonLabel": "Analyze account",
+    "searchHelperText": "Supports @username and public TikTok profile URLs.",
+    "methodologyEyebrow": "Methodology",
+    "methodologyTitle": "Every metric has a visible formula",
+    "metrics": [
+      {
+        "icon": "views",
+        "metricKey": "averageViews",
+        "title": "Average views",
+        "description": "Mean public view count across the posts included in the sample."
+      },
+      {
+        "icon": "likes",
+        "metricKey": "averageLikes",
+        "title": "Average likes",
+        "description": "Mean public like count across the posts included in the sample."
+      },
+      {
+        "icon": "engagement",
+        "metricKey": "engagementRate",
+        "title": "Engagement rate",
+        "description": "View-based interaction rate across the sample. Saves are excluded when unavailable."
+      },
+      {
+        "icon": "frequency",
+        "metricKey": "postingFrequency",
+        "title": "Posting frequency",
+        "description": "Weekly publishing pace during the clearly stated observation window."
+      }
+    ]
+  }
+}

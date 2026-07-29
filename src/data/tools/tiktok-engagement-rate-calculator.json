@@ -1,0 +1,134 @@
+{
+  "slug": "tiktok-engagement-rate-calculator",
+  "route": "/tiktok-engagement-rate-calculator",
+  "routing": "fixed",
+  "template": "engagement-calculator",
+  "toolType": "analytics",
+  "applicationCategory": "BusinessApplication",
+  "updatedAt": "2026-07-28",
+  "title": "TikTok Engagement Rate Calculator",
+  "description": "Estimate TikTok engagement rate by followers using your average likes, comments and shares. See the formula and limitations before interpreting the result.",
+  "h1": "TikTok Engagement Rate Calculator",
+  "breadcrumb": "Engagement Rate Calculator",
+  "badge": "Formula-first calculator",
+  "intro": "Enter your own follower and average interaction counts to calculate a transparent estimate. No account connection is required.",
+  "useCases": [
+    {
+      "title": "Calculate a follower-based baseline",
+      "description": "Combine average likes, comments and shares, then divide by the current follower count using a visible equation."
+    },
+    {
+      "title": "Audit two calculator results",
+      "description": "Check whether another tool used followers, views, a different interaction set or a different recent-post sample."
+    },
+    {
+      "title": "Document an influencer screen",
+      "description": "Record the input averages, denominator and calculation date so a marketer can reproduce the estimate."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Follower-based rate",
+      "description": "Average likes, comments and shares are added together, divided by followers and multiplied by 100."
+    },
+    {
+      "title": "View-based rate",
+      "description": "Post interactions are divided by sampled views; this answers a different question and must retain its own denominator label."
+    }
+  ],
+  "tips": [
+    {
+      "title": "Use one sampling rule",
+      "description": "Calculate every creator from the same number and type of eligible recent posts before comparing percentages."
+    },
+    {
+      "title": "Inspect outliers",
+      "description": "Compare the mean with individual post results because one viral or unusually weak post can distort an average."
+    },
+    {
+      "title": "Add decision context",
+      "description": "Engagement rate alone cannot establish audience fit, sentiment, watch time, conversion quality or commercial value."
+    }
+  ],
+  "faqEyebrow": "Calculator FAQ",
+  "faqTitle": "Interpret the estimate carefully",
+  "faqDescription": "Formula choice, denominator labels, input quality and responsible comparison.",
+  "faq": [
+    {
+      "question": "What does this TikTok engagement calculator do?",
+      "answer": "It estimates follower-based engagement using the average likes, comments and shares you enter."
+    },
+    {
+      "question": "What formula does the calculator use?",
+      "answer": "The formula is average likes plus average comments plus average shares, divided by followers, multiplied by 100."
+    },
+    {
+      "question": "Is the result official TikTok data?",
+      "answer": "No. It is an estimate derived only from your inputs and is not supplied, verified or endorsed by TikTok."
+    },
+    {
+      "question": "Can I compare this result with a view-based rate?",
+      "answer": "Only when you label the denominator. A view-based rate divides interactions by views, while this calculator divides them by followers. They are not interchangeable."
+    },
+    {
+      "question": "What are the limitations?",
+      "answer": "Averages can hide variation between posts, public counts may change and follower-based rates do not measure watch time, reach quality or business outcomes."
+    }
+  ],
+  "relatedTools": [
+    {
+      "label": "TikTok Creator Analytics",
+      "href": "/tiktok-analytics"
+    },
+    {
+      "label": "Engagement Formula Guide",
+      "href": "/blog/tiktok-engagement-rate-formula"
+    },
+    {
+      "label": "Calculator Differences Guide",
+      "href": "/blog/why-tiktok-engagement-calculators-differ"
+    }
+  ],
+  "keywords": [
+    "TikTok engagement rate calculator",
+    "TikTok engagement formula",
+    "engagement rate by followers",
+    "creator engagement estimate"
+  ],
+  "ui": {
+    "cards": [
+      {
+        "theme": "light",
+        "eyebrow": "This calculator",
+        "title": "Engagement rate by followers",
+        "formula": "(Avg likes + Avg comments + Avg shares) ÷ Followers × 100",
+        "description": "Useful for a consistent, follower-based comparison when every result uses the same definition and sampling method."
+      },
+      {
+        "theme": "dark",
+        "eyebrow": "Different denominator",
+        "title": "Engagement rate by views",
+        "formula": "(Likes + Comments + Shares) ÷ Views × 100",
+        "description": "This answers a different question. Always keep the denominator visible when comparing creators or posts."
+      }
+    ],
+    "educationLinks": [
+      {
+        "label": "Prepare likes, comments and shares correctly",
+        "href": "/blog/what-counts-as-tiktok-engagement-in-calculator"
+      },
+      {
+        "label": "Compare follower- and view-based formulas",
+        "href": "/blog/tiktok-engagement-rate-formula"
+      },
+      {
+        "label": "Troubleshoot a different calculator result",
+        "href": "/blog/why-tiktok-engagement-calculators-differ"
+      },
+      {
+        "label": "See what this percentage cannot decide",
+        "href": "/blog/when-tiktok-engagement-rate-is-not-enough"
+      }
+    ]
+  }
+}

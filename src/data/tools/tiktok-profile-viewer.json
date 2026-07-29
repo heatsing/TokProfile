@@ -1,0 +1,133 @@
+{
+  "slug": "tiktok-profile-viewer",
+  "route": "/tiktok-profile-viewer",
+  "routing": "fixed",
+  "template": "profile-viewer",
+  "toolType": "profile",
+  "applicationCategory": "UtilitiesApplication",
+  "updatedAt": "2026-07-28",
+  "title": "TikTok Profile Viewer — View Public Profiles",
+  "description": "View available public TikTok profile details, follower counts, likes, videos and analytics without connecting your TikTok account.",
+  "h1": "TikTok Profile Viewer",
+  "breadcrumb": "TikTok Profile Viewer",
+  "badge": "Public profiles only",
+  "intro": "Enter a username or public TikTok profile URL to review available profile details without connecting your TikTok account.",
+  "useCases": [
+    {
+      "title": "Check a creator identity",
+      "description": "Validate that a username or official profile URL points to the public creator you intended to research."
+    },
+    {
+      "title": "Review visible account context",
+      "description": "Organize available bio, follower, following, likes and video-count fields without treating missing values as zero."
+    },
+    {
+      "title": "Screen a public profile safely",
+      "description": "Recognize private, restricted and unavailable states before using profile information in a creator-research workflow."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Username input",
+      "description": "Enter @creatorname when you already know the public TikTok username and want the shortest validation path."
+    },
+    {
+      "title": "Official profile URL",
+      "description": "Paste https://www.tiktok.com/@creatorname when you need the parser to confirm the host and extract the account identifier."
+    }
+  ],
+  "tips": [
+    {
+      "title": "Confirm the exact account",
+      "description": "Compare the username, profile photo and visible bio before relying on similarly named profiles."
+    },
+    {
+      "title": "Keep unavailable separate from zero",
+      "description": "A missing follower count or video list is not evidence that the creator has no followers or posts."
+    },
+    {
+      "title": "Respect private-account boundaries",
+      "description": "A profile viewer cannot approve a follow request, reveal follower-only posts or bypass TikTok audience controls."
+    }
+  ],
+  "faqEyebrow": "Profile viewer FAQ",
+  "faqTitle": "Clear answers",
+  "faqDescription": "What this tool accepts, who it is for and where public-data limitations apply.",
+  "faq": [
+    {
+      "question": "What is the TikTok Profile Viewer?",
+      "answer": "It is a browser-based tool that accepts a TikTok username or public profile URL and organizes available public profile information in one focused view."
+    },
+    {
+      "question": "Who is the profile viewer for?",
+      "answer": "It is designed for viewers, creators and marketers researching publicly available creator profiles without connecting a TikTok account."
+    },
+    {
+      "question": "How do I view a public TikTok profile?",
+      "answer": "Enter a username such as @username or paste the full public TikTok profile URL. TokLens validates the input before preparing the profile view."
+    },
+    {
+      "question": "Can TokLens view a private TikTok account?",
+      "answer": "No. TokLens respects private account settings and does not bypass TikTok access controls. Private profile metrics, videos and analytics remain unavailable."
+    },
+    {
+      "question": "Why are some profile metrics unavailable?",
+      "answer": "Public source availability can vary by profile, region and time. TokLens displays unavailable values as a dash rather than treating missing information as zero."
+    }
+  ],
+  "relatedTools": [
+    {
+      "label": "TikTok Analytics",
+      "href": "/tiktok-analytics"
+    },
+    {
+      "label": "TikTok Video Downloader",
+      "href": "/tiktok-video-downloader"
+    },
+    {
+      "label": "Public Profile Information Guide",
+      "href": "/blog/what-information-is-public-on-tiktok"
+    }
+  ],
+  "keywords": [
+    "TikTok profile viewer",
+    "view public TikTok profile",
+    "TikTok account viewer",
+    "public creator profile research"
+  ],
+  "ui": {
+    "searchButtonLabel": "View profile",
+    "searchHelperText": "Supports @username and public TikTok profile URLs.",
+    "trustItems": ["No TikTok login required", "Private accounts stay private"],
+    "educationLinks": [
+      {
+        "label": "Learn what information can be public on a TikTok profile",
+        "href": "/blog/what-information-is-public-on-tiktok"
+      },
+      {
+        "label": "Learn when TikTok profile visits may be visible",
+        "href": "/blog/can-people-see-who-viewed-their-tiktok-profile"
+      }
+    ],
+    "workflowEyebrow": "One focused workflow",
+    "workflowTitle": "How the profile viewer works",
+    "workflowDescription": "TokLens handles validation and presentation. It does not unlock private accounts or invent unavailable profile metrics.",
+    "workflow": [
+      {
+        "icon": "link",
+        "title": "Enter a profile",
+        "description": "Type a TikTok username or paste its public profile URL."
+      },
+      {
+        "icon": "search",
+        "title": "Validate the input",
+        "description": "The shared Tool Engine detects the input and rejects unsupported URLs."
+      },
+      {
+        "icon": "eye",
+        "title": "Review public details",
+        "description": "See available profile information with clear availability labels."
+      }
+    ]
+  }
+}
