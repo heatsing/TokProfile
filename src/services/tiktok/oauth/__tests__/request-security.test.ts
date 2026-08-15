@@ -20,21 +20,27 @@ describe("OAuth mutation origin validation", () => {
   });
 
   it("rejects a cross-site origin", () => {
-    const request = new NextRequest("https://toklens.app/api/tiktok-analytics/capture", {
-      headers: {
-        host: "toklens.app",
-        origin: "https://evil.example",
+    const request = new NextRequest(
+      "https://tokprofile.com/api/tiktok-analytics/capture",
+      {
+        headers: {
+          host: "tokprofile.com",
+          origin: "https://evil.example",
+        },
+        method: "POST",
       },
-      method: "POST",
-    });
+    );
 
     expect(hasTrustedMutationOrigin(request)).toBe(false);
   });
 
   it("rejects requests without an Origin header", () => {
-    const request = new NextRequest("https://toklens.app/api/tiktok-analytics/capture", {
-      method: "POST",
-    });
+    const request = new NextRequest(
+      "https://tokprofile.com/api/tiktok-analytics/capture",
+      {
+        method: "POST",
+      },
+    );
 
     expect(hasTrustedMutationOrigin(request)).toBe(false);
   });

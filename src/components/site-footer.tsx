@@ -34,7 +34,7 @@ const footerLinks = [
         href: "/blog/how-toklens-estimates-tiktok-engagement",
       },
       { label: "Privacy & Data", href: "/privacy" },
-      { label: "Contact", href: "mailto:hello@toklens.app" },
+      { label: "Contact", href: "mailto:hello@tokprofile.com" },
     ],
   },
 ] as const;
@@ -79,7 +79,7 @@ export function SiteFooter() {
             <Link href="/privacy">Privacy</Link>
             <Link href="/#how-it-works">Public data</Link>
             <Link href="/#faq">FAQ</Link>
-            <Link href="mailto:hello@toklens.app">Contact</Link>
+            <Link href="mailto:hello@tokprofile.com">Contact</Link>
           </div>
         </div>
       </div>

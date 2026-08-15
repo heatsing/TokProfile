@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
+import { format, resolveConfig } from "prettier";
 
 const root = process.cwd();
 const blogDirectory = path.join(root, "content", "blog");
@@ -25,7 +26,12 @@ const posts = await Promise.all(
 );
 
 await fs.mkdir(outputDirectory, { recursive: true });
-await fs.writeFile(outputFile, `${JSON.stringify(posts, null, 2)}\n`, "utf8");
+const prettierConfig = await resolveConfig(outputFile);
+const generatedJson = await format(JSON.stringify(posts), {
+  ...prettierConfig,
+  parser: "json",
+});
+await fs.writeFile(outputFile, generatedJson, "utf8");
 
 console.warn(
   `Generated ${posts.length} blog posts in ${path.relative(root, outputFile)}.`,

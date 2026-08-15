@@ -206,12 +206,20 @@ fallback and does not scrape arbitrary accounts.
 
 ## Deployment
 
-The application is designed for Vercel. Set all environment variables in the
-deployment environment and ensure `NEXT_PUBLIC_SITE_URL` matches the production
-origin before releasing.
+The application is deployed to Cloudflare Workers with OpenNext. Set all
+environment variables in the deployment environment and ensure
+`NEXT_PUBLIC_SITE_URL` matches the production origin (`https://tokprofile.com`)
+before releasing. After the `tokprofile.com` zone is active in Cloudflare, add
+its custom-domain route to `wrangler.jsonc` before the production release.
 
-The production command is:
+Build locally with:
 
 ```bash
 npm run build
+```
+
+Deploy to Cloudflare with:
+
+```bash
+npm run deploy
 ```

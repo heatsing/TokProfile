@@ -1056,7 +1056,7 @@ or whether the video met a specific campaign goal.
 首发只维护一个 English canonical，不按国家复制：
 
 ```text
-https://toklens.app/tiktok-analytics
+https://tokprofile.com/tiktok-analytics
 ```
 
 不创建：

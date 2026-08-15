@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = "https://toklens.app";
+const DEFAULT_SITE_URL = "https://tokprofile.com";
 
 function parsePublicUrl(value: string | undefined, fallback: string): string {
   const candidate = value?.trim() || fallback;

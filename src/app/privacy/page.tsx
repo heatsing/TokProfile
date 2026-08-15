@@ -278,10 +278,10 @@ export default function PrivacyPage() {
           <p>
             Questions or data requests can be sent to{" "}
             <a
-              href="mailto:hello@toklens.app"
+              href="mailto:hello@tokprofile.com"
               className="font-bold text-emerald-800 underline underline-offset-4"
             >
-              hello@toklens.app
+              hello@tokprofile.com
             </a>
             . The ability to locate or delete a record depends on what was collected and
             whether it can be associated with the request.

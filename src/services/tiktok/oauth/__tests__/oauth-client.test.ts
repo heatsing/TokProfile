@@ -15,7 +15,7 @@ describe("TikTok OAuth client", () => {
   it("builds the current web authorization URL without secrets or PKCE", () => {
     const url = buildTikTokAuthorizationUrl({
       clientKey: "client-key",
-      redirectUri: "https://toklens.app/api/auth/tiktok/callback",
+      redirectUri: "https://tokprofile.com/api/auth/tiktok/callback",
       state: "csrf-state",
     });
 
@@ -47,7 +47,7 @@ describe("TikTok OAuth client", () => {
       clientKey: "key",
       clientSecret: "secret",
       now: () => new Date("2026-07-26T00:00:00.000Z"),
-      redirectUri: "https://toklens.app/api/auth/tiktok/callback",
+      redirectUri: "https://tokprofile.com/api/auth/tiktok/callback",
     });
 
     const tokens = await client.exchangeCode("authorization-code");
