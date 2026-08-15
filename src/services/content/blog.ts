@@ -1,34 +1,26 @@
 import { cache } from "react";
-import { promises as fs } from "node:fs";
-import path from "node:path";
-import matter from "gray-matter";
+
+import blogPostSources from "@/data/generated/blog-posts.json";
 
 import type { BlogPost, BlogPostSummary } from "@/types/blog";
 
 import { estimateReadingMinutes, parseBlogFrontmatter } from "./blog-schema";
 
-const blogDirectory = path.join(process.cwd(), "content", "blog");
 const safeSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
-async function readPostFile(filename: string): Promise<BlogPost> {
-  const slug = filename.replace(/\.md$/, "");
-  const source = await fs.readFile(path.join(blogDirectory, filename), "utf8");
-  const parsed = matter(source);
-  const frontmatter = parseBlogFrontmatter(parsed.data);
+function parseBlogPost(source: (typeof blogPostSources)[number]): BlogPost {
+  const frontmatter = parseBlogFrontmatter(source.frontmatter);
 
   return {
     ...frontmatter,
-    content: parsed.content.trim(),
-    readingMinutes: estimateReadingMinutes(parsed.content),
-    slug,
+    content: source.content,
+    readingMinutes: estimateReadingMinutes(source.content),
+    slug: source.slug,
   };
 }
 
 export const getAllBlogPosts = cache(async (): Promise<BlogPostSummary[]> => {
-  const filenames = (await fs.readdir(blogDirectory)).filter((filename) =>
-    filename.endsWith(".md"),
-  );
-  const posts = await Promise.all(filenames.map(readPostFile));
+  const posts = blogPostSources.map(parseBlogPost);
 
   return posts
     .filter((post) => post.status === "published")
@@ -41,18 +33,9 @@ export const getBlogPost = cache(async (slug: string): Promise<BlogPost | null> 
     return null;
   }
 
-  try {
-    const post = await readPostFile(`${slug}.md`);
-    return post.status === "published" ? post : null;
-  } catch (error) {
-    if (
-      error instanceof Error &&
-      "code" in error &&
-      (error as NodeJS.ErrnoException).code === "ENOENT"
-    ) {
-      return null;
-    }
+  const source = blogPostSources.find((candidate) => candidate.slug === slug);
+  if (!source) return null;
 
-    throw error;
-  }
+  const post = parseBlogPost(source);
+  return post.status === "published" ? post : null;
 });

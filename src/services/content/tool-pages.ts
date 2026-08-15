@@ -1,26 +1,26 @@
 import "server-only";
 
 import { cache } from "react";
-import { promises as fs } from "node:fs";
-import path from "node:path";
+
+import tiktokAnalytics from "@/data/tools/tiktok-analytics.json";
+import tiktokEngagementRateCalculator from "@/data/tools/tiktok-engagement-rate-calculator.json";
+import tiktokProfileViewer from "@/data/tools/tiktok-profile-viewer.json";
+import tiktokVideoDownloader from "@/data/tools/tiktok-video-downloader.json";
 
 import type { ToolPageData } from "@/types/tool-page";
 
 import { parseToolPageData } from "./tool-page-schema";
 
-const toolPageDirectory = path.join(process.cwd(), "src", "data", "tools");
 const safeSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-
-async function readToolPageFile(filename: string) {
-  const source = await fs.readFile(path.join(toolPageDirectory, filename), "utf8");
-  return parseToolPageData(JSON.parse(source) as unknown);
-}
+const toolPageSources = [
+  tiktokAnalytics,
+  tiktokEngagementRateCalculator,
+  tiktokProfileViewer,
+  tiktokVideoDownloader,
+] as const;
 
 export const getAllToolPages = cache(async (): Promise<ToolPageData[]> => {
-  const filenames = (await fs.readdir(toolPageDirectory))
-    .filter((filename) => filename.endsWith(".json"))
-    .sort();
-  const pages = await Promise.all(filenames.map(readToolPageFile));
+  const pages = toolPageSources.map((source) => parseToolPageData(source));
   const slugs = new Set<string>();
 
   for (const page of pages) {
@@ -38,18 +38,8 @@ export const getToolPage = cache(async (slug: string): Promise<ToolPageData | nu
     return null;
   }
 
-  try {
-    return await readToolPageFile(`${slug}.json`);
-  } catch (error) {
-    if (
-      error instanceof Error &&
-      "code" in error &&
-      (error as NodeJS.ErrnoException).code === "ENOENT"
-    ) {
-      return null;
-    }
-    throw error;
-  }
+  const source = toolPageSources.find((candidate) => candidate.slug === slug);
+  return source ? parseToolPageData(source) : null;
 });
 
 export async function requireToolPage(slug: string) {
