@@ -74,7 +74,7 @@ export function DownloaderWorkspace() {
     >
       <form onSubmit={handleSubmit}>
         <label
-          className="block text-sm font-extrabold text-[#172a2d]"
+          className="block text-[13px] font-extrabold text-[#172a2d]"
           htmlFor="downloader-url"
         >
           TikTok video link
@@ -91,18 +91,18 @@ export function DownloaderWorkspace() {
               type="url"
               value={url}
               onChange={(event) => setUrl(event.target.value)}
-              className="h-11 min-w-0 flex-1 bg-transparent px-3 text-[15px] text-[#172a2d] outline-none placeholder:text-[#71807e]"
+              className="h-11 min-w-0 flex-1 bg-transparent px-3 text-sm text-[#172a2d] outline-none placeholder:text-[#71807e]"
             />
             <button
               type="button"
               onClick={handlePaste}
-              className="h-10 rounded-md bg-[#edf5f3] px-4 text-sm font-extrabold text-[#087568] transition-colors hover:bg-[#e0efeb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087568]"
+              className="h-10 rounded-md bg-[#edf5f3] px-4 text-[13px] font-extrabold text-[#087568] transition-colors hover:bg-[#e0efeb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087568]"
             >
               Paste
             </button>
           </div>
           <button
-            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-lg bg-[#087568] px-6 text-sm font-extrabold text-white transition-colors hover:bg-[#075f55] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087568] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-40"
+            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-lg bg-[#087568] px-6 text-[13px] font-extrabold text-white transition-colors hover:bg-[#075f55] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087568] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-40"
             disabled={state.status === "loading"}
             type="submit"
           >
@@ -118,7 +118,7 @@ export function DownloaderWorkspace() {
           {pasteMessage}
         </p>
 
-        <label className="mt-3 flex cursor-pointer items-start gap-2 text-xs leading-5 text-[#5c6c6a] sm:text-sm">
+        <label className="mt-3 flex cursor-pointer items-start gap-2 text-xs leading-5 text-[#5c6c6a]">
           <input
             className="mt-0.5 size-4 shrink-0 accent-[#087568]"
             name="rightsConfirmed"
@@ -142,7 +142,7 @@ export function DownloaderWorkspace() {
               <p className="text-xs font-extrabold uppercase tracking-wider text-amber-800">
                 {state.error.code.replaceAll("_", " ")}
               </p>
-              <p className="mt-1 text-sm leading-6 text-amber-950">
+              <p className="mt-1 text-[13px] leading-5 text-amber-950">
                 {state.error.message}
               </p>
             </div>
@@ -151,7 +151,7 @@ export function DownloaderWorkspace() {
 
         {state.status === "success" ? (
           <div className="mt-5 border-t border-[#dbe6e3] pt-5 text-left">
-            <div className="flex items-center gap-2 text-sm font-extrabold text-[#087568]">
+            <div className="flex items-center gap-2 text-[13px] font-extrabold text-[#087568]">
               <CheckCircle2 className="size-5" aria-hidden="true" />
               Valid public TikTok video URL
             </div>
@@ -160,7 +160,7 @@ export function DownloaderWorkspace() {
                 <dt className="text-xs font-bold uppercase tracking-wider text-[#657572]">
                   Creator
                 </dt>
-                <dd className="mt-1 text-sm font-bold text-[#172a2d]">
+                <dd className="mt-1 text-[13px] font-bold text-[#172a2d]">
                   {state.data.authorUsername
                     ? `@${state.data.authorUsername}`
                     : "Unavailable"}
@@ -170,7 +170,7 @@ export function DownloaderWorkspace() {
                 <dt className="text-xs font-bold uppercase tracking-wider text-[#657572]">
                   Video ID
                 </dt>
-                <dd className="mt-1 break-all text-sm text-[#172a2d]">
+                <dd className="mt-1 break-all text-[13px] text-[#172a2d]">
                   {state.data.contentId}
                 </dd>
               </div>
@@ -182,7 +182,7 @@ export function DownloaderWorkspace() {
                 className="mt-3 flex flex-col gap-3 rounded-lg border border-[#dbe6e3] p-4 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div>
-                  <p className="text-sm font-extrabold text-[#172a2d]">
+                  <p className="text-[13px] font-extrabold text-[#172a2d]">
                     {option.label} · {option.format}
                   </p>
                   <p className="mt-1 text-xs leading-5 text-[#657572]">

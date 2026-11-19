@@ -20,7 +20,7 @@ export function SiteHeader({ variant = "default" }: { variant?: "default" | "uti
           <Link
             href="/"
             aria-label="TokProfile home"
-            className="font-display text-xl font-extrabold tracking-[-0.045em] text-[#172a2d]"
+            className="font-display text-lg font-extrabold tracking-[-0.045em] text-[#172a2d]"
           >
             Tok<span className="text-[#087568]">Profile</span>
           </Link>
@@ -30,7 +30,7 @@ export function SiteHeader({ variant = "default" }: { variant?: "default" | "uti
                 {"href" in link ? (
                   <Link
                     href={link.href}
-                    className="text-[13px] font-bold text-[#233438] transition-colors hover:text-[#087568]"
+                    className="text-xs font-bold text-[#233438] transition-colors hover:text-[#087568]"
                   >
                     {link.label}
                   </Link>
@@ -38,7 +38,7 @@ export function SiteHeader({ variant = "default" }: { variant?: "default" | "uti
                   <span
                     aria-disabled="true"
                     title="Coming soon"
-                    className="cursor-default text-[13px] font-bold text-[#233438]"
+                    className="cursor-default text-xs font-bold text-[#233438]"
                   >
                     {link.label}
                   </span>
@@ -62,7 +62,7 @@ export function SiteHeader({ variant = "default" }: { variant?: "default" | "uti
                   {"href" in link ? (
                     <Link
                       href={link.href}
-                      className="flex items-center justify-between rounded-lg px-4 py-3 text-sm font-semibold text-[#31474a] hover:bg-[#eef5f3] hover:text-[#087568]"
+                      className="flex items-center justify-between rounded-lg px-4 py-3 text-[13px] font-semibold text-[#31474a] hover:bg-[#eef5f3] hover:text-[#087568]"
                     >
                       {link.label}
                       <ArrowUpRight className="size-3.5" />
@@ -70,7 +70,7 @@ export function SiteHeader({ variant = "default" }: { variant?: "default" | "uti
                   ) : (
                     <span
                       aria-disabled="true"
-                      className="flex items-center justify-between rounded-lg px-4 py-3 text-sm font-semibold text-[#7b8987]"
+                      className="flex items-center justify-between rounded-lg px-4 py-3 text-[13px] font-semibold text-[#7b8987]"
                     >
                       {link.label}
                       <span className="text-[10px] font-bold uppercase tracking-wider">

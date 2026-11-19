@@ -69,7 +69,7 @@ export function SiteFooter({ variant = "default" }: { variant?: "default" | "uti
                 <Link
                   key={tool.label}
                   href={tool.href}
-                  className="inline-flex min-h-12 items-center gap-3 rounded-full bg-[#eff5f3] px-5 text-sm font-extrabold transition-colors hover:bg-[#e2efeb] hover:text-[#087568] sm:text-base"
+                  className="inline-flex min-h-12 items-center gap-3 rounded-full bg-[#eff5f3] px-5 text-[13px] font-extrabold transition-colors hover:bg-[#e2efeb] hover:text-[#087568] sm:text-sm"
                 >
                   {content}
                 </Link>
@@ -78,7 +78,7 @@ export function SiteFooter({ variant = "default" }: { variant?: "default" | "uti
                   key={tool.label}
                   aria-disabled="true"
                   title="Coming soon"
-                  className="inline-flex min-h-12 cursor-default items-center gap-3 rounded-full bg-[#eff5f3] px-5 text-sm font-extrabold text-[#294442] sm:text-base"
+                  className="inline-flex min-h-12 cursor-default items-center gap-3 rounded-full bg-[#eff5f3] px-5 text-[13px] font-extrabold text-[#294442] sm:text-sm"
                 >
                   {content}
                 </span>
@@ -89,7 +89,7 @@ export function SiteFooter({ variant = "default" }: { variant?: "default" | "uti
           <Link
             href="/"
             aria-current="page"
-            className="mt-8 inline-flex items-center gap-3 font-display text-xl font-extrabold tracking-[-0.02em] sm:text-2xl"
+            className="mt-8 inline-flex items-center gap-3 font-display text-lg font-extrabold tracking-[-0.02em] sm:text-xl"
           >
             <span className="grid size-11 place-items-center rounded-full bg-[#087568] text-white">
               <Download className="size-5" aria-hidden="true" />
@@ -99,7 +99,7 @@ export function SiteFooter({ variant = "default" }: { variant?: "default" | "uti
 
           <nav
             aria-label="Footer"
-            className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm text-[#49605d] sm:text-base"
+            className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-[13px] text-[#49605d] sm:text-sm"
           >
             <Link className="hover:text-[#087568]" href="#download-help">
               Help
@@ -118,10 +118,10 @@ export function SiteFooter({ variant = "default" }: { variant?: "default" | "uti
             </span>
           </nav>
 
-          <p className="mt-8 text-sm text-[#576d69] sm:text-base">
+          <p className="mt-8 text-xs text-[#576d69] sm:text-[13px]">
             TokProfile is independent of TikTok and ByteDance.
           </p>
-          <p id="site-copyright" className="mt-3 text-sm text-[#576d69] sm:text-base">
+          <p id="site-copyright" className="mt-3 text-xs text-[#576d69] sm:text-[13px]">
             © {new Date().getFullYear()} TokProfile. All rights reserved.
           </p>
         </div>
