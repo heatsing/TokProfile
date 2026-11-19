@@ -80,7 +80,7 @@ export async function DownloaderLandingPage({
             id="how-to-download-title"
             className="font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl"
           >
-            How to Download a TikTok Video
+            How to Check a TikTok Video Link
           </h2>
           <ol className="mt-6 grid gap-4 lg:grid-cols-3">
             {ui.howToSteps.map((step) => (
@@ -120,7 +120,7 @@ export async function DownloaderLandingPage({
         >
           <div>
             <h2 className="font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl">
-              Where to Find Your Download
+              What the Result Shows
             </h2>
             <div className="mt-6 space-y-4">
               {ui.downloadLocations.map((item) => (
@@ -135,7 +135,7 @@ export async function DownloaderLandingPage({
           </div>
           <div>
             <h2 className="font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl">
-              TikTok Download Help
+              TikTok Link Check Help
             </h2>
             <div className="mt-6 space-y-4">
               {ui.helpItems.map((item) => (
@@ -170,7 +170,7 @@ export async function DownloaderLandingPage({
             id="more-tools-title"
             className="font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl"
           >
-            More TikTok Tools
+            More TokProfile Resources
           </h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {page.relatedTools.map((tool) => (
@@ -228,8 +228,8 @@ export async function DownloaderLandingPage({
                 className="mt-0.5 size-4 shrink-0 text-[#087568]"
                 aria-hidden="true"
               />
-              This tool validates supported public video links. It does not bypass private
-              accounts, access controls or copyright restrictions.
+              This tool validates supported public video links. It does not fetch the
+              video, create a file, bypass access controls or grant reuse rights.
             </p>
           </div>
         </section>

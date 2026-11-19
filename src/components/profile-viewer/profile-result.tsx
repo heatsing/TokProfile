@@ -264,7 +264,7 @@ export function ProfileViewerResult({
               @{state.profile.username} is private
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">
-              TokLens does not bypass private account settings. Profile metrics, videos
+              TokProfile does not bypass private account settings. Profile metrics, videos
               and analytics remain unavailable.
             </p>
           </div>

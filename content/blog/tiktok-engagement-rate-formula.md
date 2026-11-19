@@ -7,7 +7,7 @@ tags:
   - engagement formula
   - creator analytics
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Data & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -42,7 +42,7 @@ If you already have two different percentages, use [Why TikTok Engagement Calcul
 
 ## Formula 1: engagement rate by followers
 
-TokLens' standalone calculator uses:
+TokProfile' standalone calculator uses:
 
 `(Average likes + Average comments + Average shares) ÷ Followers × 100`
 
@@ -216,7 +216,7 @@ Missing data is a limitation, not a zero-value interaction.
 
 ### Calling the result official
 
-TokLens calculates an estimate from the inputs or authorized fields available to it. The result is not supplied, verified or endorsed by TikTok.
+TokProfile calculates an estimate from the inputs or authorized fields available to it. The result is not supplied, verified or endorsed by TikTok.
 
 ### Treating engagement as business performance
 
@@ -255,12 +255,12 @@ If any item differs, explain it before drawing a conclusion.
 
 ## Calculate a transparent estimate
 
-The [TokLens TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) uses average likes, comments and shares divided by followers. It requires no account connection and displays the formula, substituted values and estimated result.
+The [TokProfile TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) uses average likes, comments and shares divided by followers. It requires no account connection and displays the formula, substituted values and estimated result.
 
-For details about how TokLens handles samples, unavailable values, posting frequency and top-post ranking, read [How TokLens Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
+For details about how TokProfile handles samples, unavailable values, posting frequency and top-post ranking, read [How TokProfile Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
 
 ## Sources and review notes
 
 TikTok's [Video Object documentation](https://developers.tiktok.com/doc/tiktok-api-v2-video-object/) lists the available video count fields used in the view-based example. TikTok's [Get User Info documentation](https://developers.tiktok.com/doc/tiktok-api-v2-get-user-info/) lists `follower_count` under the `user.info.stats` authorized scope.
 
-The formulas, examples and interpretation guidance in this article are TokLens methodology. All account figures are illustrative. This article was reviewed on July 26, 2026 and should be reviewed again if TikTok changes its documented fields or TokLens changes its calculator.
+The formulas, examples and interpretation guidance in this article are TokProfile methodology. All account figures are illustrative. This article was reviewed on July 26, 2026 and should be reviewed again if TikTok changes its documented fields or TokProfile changes its calculator.

@@ -64,15 +64,15 @@
     },
     {
       "question": "How do I view a public TikTok profile?",
-      "answer": "Enter a username such as @username or paste the full public TikTok profile URL. TokLens validates the input before preparing the profile view."
+      "answer": "Enter a username such as @username or paste the full public TikTok profile URL. TokProfile validates the input before preparing the profile view."
     },
     {
-      "question": "Can TokLens view a private TikTok account?",
-      "answer": "No. TokLens respects private account settings and does not bypass TikTok access controls. Private profile metrics, videos and analytics remain unavailable."
+      "question": "Can TokProfile view a private TikTok account?",
+      "answer": "No. TokProfile respects private account settings and does not bypass TikTok access controls. Private profile metrics, videos and analytics remain unavailable."
     },
     {
       "question": "Why are some profile metrics unavailable?",
-      "answer": "Public source availability can vary by profile, region and time. TokLens displays unavailable values as a dash rather than treating missing information as zero."
+      "answer": "Public source availability can vary by profile, region and time. TokProfile displays unavailable values as a dash rather than treating missing information as zero."
     }
   ],
   "relatedTools": [
@@ -111,7 +111,7 @@
     ],
     "workflowEyebrow": "One focused workflow",
     "workflowTitle": "How the profile viewer works",
-    "workflowDescription": "TokLens handles validation and presentation. It does not unlock private accounts or invent unavailable profile metrics.",
+    "workflowDescription": "TokProfile handles validation and presentation. It does not unlock private accounts or invent unavailable profile metrics.",
     "workflow": [
       {
         "icon": "link",

@@ -7,7 +7,7 @@ tags:
   - influencer research
   - creator analytics
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Data & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -145,7 +145,7 @@ Always label:
 - Missing fields.
 - Estimated status.
 
-The [TokLens TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) calculates the follower-based estimate from values you enter and displays the formula beside the result.
+The [TokProfile TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) calculates the follower-based estimate from values you enter and displays the formula beside the result.
 
 If two tools disagree, [audit their formulas and samples](/blog/why-tiktok-engagement-calculators-differ) before selecting a number.
 
@@ -366,16 +366,16 @@ Decision: show both the complete sample and the result without the outlier, then
 
 All scenarios are illustrative and are not benchmark recommendations.
 
-## TokLens capability status
+## TokProfile capability status
 
-TokLens currently supports:
+TokProfile currently supports:
 
 - A working follower-based Engagement Rate Calculator using user-supplied inputs.
 - Transparent formulas and substituted values.
 - Content explaining public-data and calculation limitations.
 - Authorized own-account analytics infrastructure that requires appropriate TikTok configuration and creator authorization.
 
-TokLens does not currently support:
+TokProfile does not currently support:
 
 - Reliable arbitrary competitor tracking.
 - A multi-creator campaign workspace.

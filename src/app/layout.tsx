@@ -7,35 +7,29 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   metadataBase: new URL(publicEnv.siteUrl),
   title: {
-    default: "TokProfile — TikTok Viewer & Creator Analytics",
+    default: "TokProfile — Clear TikTok Link & Engagement Tools",
     template: "%s | TokProfile",
   },
   description:
-    "Explore public TikTok profiles, understand creator growth, and research content performance with privacy-first creator intelligence.",
+    "Check supported public TikTok video links and calculate an estimated engagement rate with clear inputs, formulas and limitations.",
   applicationName: siteConfig.name,
   keywords: [
-    "TikTok viewer",
-    "TikTok analytics",
-    "creator analytics",
-    "TikTok profile viewer",
-    "influencer research",
+    "TikTok video link checker",
+    "TikTok URL validator",
+    "TikTok engagement calculator",
   ],
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "/",
     siteName: "TokProfile",
-    title: "TokProfile — See what is moving on TikTok",
+    title: "TokProfile — Clear TikTok Link & Engagement Tools",
     description:
-      "Public TikTok discovery and creator intelligence, in one focused workspace.",
+      "Validate supported public video links and calculate an estimated engagement rate.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TokProfile — TikTok Viewer & Creator Analytics",
-    description: "Explore public content, compare creators, and spot growth signals.",
+    title: "TokProfile — Clear TikTok Link & Engagement Tools",
+    description: "Validate supported public video links and show engagement formulas.",
   },
   robots: {
     index: true,

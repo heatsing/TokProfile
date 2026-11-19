@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "TokProfile public TikTok viewer and creator analytics";
+export const alt = "TokProfile clear TikTok link and engagement tools";
 export const size = {
   width: 1200,
   height: 630,
@@ -87,9 +87,9 @@ export default function OpenGraphImage() {
             maxWidth: 980,
           }}
         >
-          Public TikTok Viewer
+          Clear TikTok Link Tools
           <span style={{ color: "#173D30", display: "block" }}>
-            &amp; Creator Analytics
+            &amp; Engagement Formulas
           </span>
         </div>
         <div
@@ -103,7 +103,7 @@ export default function OpenGraphImage() {
             padding: "15px 28px",
           }}
         >
-          One public link. One focused view.
+          Real inputs. Clear limitations.
         </div>
       </div>
     </div>,

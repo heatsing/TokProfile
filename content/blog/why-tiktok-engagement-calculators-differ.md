@@ -7,7 +7,7 @@ tags:
   - engagement rate methodology
   - creator comparison
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Data & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -211,7 +211,7 @@ The safest output distinguishes:
 - **Not included:** the formula intentionally excludes the field.
 - **Estimated:** the value was modelled rather than observed.
 
-TokLens does not recommend inventing a value merely to produce a percentage.
+TokProfile does not recommend inventing a value merely to produce a percentage.
 
 ## Difference 7: abbreviated inputs and rounding
 
@@ -269,9 +269,9 @@ Use one consistent method for every account or time period in the comparison.
 
 If neither tool discloses enough information, do not use the difference as evidence that one creator is stronger.
 
-## How the TokLens Calculator works
+## How the TokProfile Calculator works
 
-The [TokLens TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) uses:
+The [TokProfile TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) uses:
 
 `(Average likes + Average comments + Average shares) ÷ Followers × 100`
 
@@ -317,6 +317,6 @@ The label is longer than a bare percentage because it carries the information ne
 
 TikTok's [Video Object documentation](https://developers.tiktok.com/doc/tiktok-api-v2-video-object/) defines the video count fields referenced in this guide. TikTok's [Get User Info documentation](https://developers.tiktok.com/doc/tiktok-api-v2-get-user-info/) lists `follower_count` under the `user.info.stats` authorized scope.
 
-For TokLens sample handling, unavailable values and analytics boundaries, read [How TokLens Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
+For TokProfile sample handling, unavailable values and analytics boundaries, read [How TokProfile Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
 
-All numerical examples are illustrative. TokLens does not endorse third-party benchmark claims reviewed during editorial research. This article was reviewed on July 26, 2026 and should be reviewed if TikTok changes its documented fields or TokLens changes its calculation method.
+All numerical examples are illustrative. TokProfile does not endorse third-party benchmark claims reviewed during editorial research. This article was reviewed on July 26, 2026 and should be reviewed if TikTok changes its documented fields or TokProfile changes its calculation method.

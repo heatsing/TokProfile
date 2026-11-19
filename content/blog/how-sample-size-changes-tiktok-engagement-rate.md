@@ -7,7 +7,7 @@ tags:
   - engagement rate
   - creator analytics
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Data & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -314,7 +314,7 @@ Creators should use first-party account analytics for private insights. Marketer
 
 The guide [When TikTok Engagement Rate Is Not Enough](/blog/when-tiktok-engagement-rate-is-not-enough) maps each decision to the additional reach, consistency, audience, attention or outcome evidence it needs.
 
-## How TokLens uses your inputs
+## How TokProfile uses your inputs
 
 The current [TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) accepts average likes, comments, shares and current followers. It calculates a follower-based estimate and shows the substituted formula.
 
@@ -326,7 +326,7 @@ The calculator does not know which posts you used to create those averages. Befo
 - Check the mean against the median when one post is unusually large.
 - Label the result estimated and follower-based.
 
-TokLens does not claim that one sample size is an official TikTok standard. Our broader calculation rules are documented in [How TokLens Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
+TokProfile does not claim that one sample size is an official TikTok standard. Our broader calculation rules are documented in [How TokProfile Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
 
 ## Sources and review notes
 
@@ -334,4 +334,4 @@ TikTok's [Video Object documentation](https://developers.tiktok.com/doc/tiktok-a
 
 The U.S. National Institute of Standards and Technology explains that the [median is less affected by outliers than the mean](https://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/mediancl.htm) and advises that [potential outliers require investigation](https://www.itl.nist.gov/div898/handbook/prc/section1/prc16.htm) rather than automatic removal.
 
-All post and account figures in this article are illustrative. The sample comparison and interpretation are TokLens methodology, not an official TikTok benchmark. This article was reviewed on July 26, 2026.
+All post and account figures in this article are illustrative. The sample comparison and interpretation are TokProfile methodology, not an official TikTok benchmark. This article was reviewed on July 26, 2026.

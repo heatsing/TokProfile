@@ -137,7 +137,7 @@ export function EngagementCalculator() {
         <p className="mt-4 max-w-lg text-sm leading-6 text-white/60">
           {result
             ? "This estimate uses only the values you entered. It is not a benchmark, prediction or value supplied by TikTok."
-            : "Enter your own averages to produce an estimate. TokLens does not prefill or invent account metrics."}
+            : "Enter your own averages to produce an estimate. TokProfile does not prefill or invent account metrics."}
         </p>
 
         <div className="mt-8 rounded-2xl border border-white/15 bg-white/5 p-5">

@@ -7,7 +7,7 @@ tags:
   - creator evaluation
   - content analytics
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Data & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -355,9 +355,9 @@ Use this compact structure beside an engagement-rate result.
 
 This card makes the number auditable without pretending to create a universal creator score.
 
-## How the TokLens Calculator works
+## How the TokProfile Calculator works
 
-The [TokLens TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) calculates:
+The [TokProfile TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) calculates:
 
 `(Average likes + Average comments + Average shares) / Followers * 100`
 
@@ -375,7 +375,7 @@ The Calculator does not:
 
 Use it to produce one labelled follower-based estimate. Then apply the evidence framework above.
 
-TokLens' public calculation boundaries are documented in [How TokLens Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
+TokProfile' public calculation boundaries are documented in [How TokProfile Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
 
 ## A decision statement you can reuse
 

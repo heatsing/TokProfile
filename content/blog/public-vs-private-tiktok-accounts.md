@@ -8,7 +8,7 @@ tags:
   - TikTok privacy
   - TikTok account visibility
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Privacy & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -386,9 +386,9 @@ It cannot:
 - Restore disabled downloads.
 - Promise complete anonymity.
 
-TokLens' live public-profile data connector is not currently available. TokLens therefore does not claim complete profile results for arbitrary accounts and does not use a private-account label as permission to invent missing fields.
+TokProfile' live public-profile data connector is not currently available. TokProfile therefore does not claim complete profile results for arbitrary accounts and does not use a private-account label as permission to invent missing fields.
 
-If your concern is viewing without signing in, read [what “no login” does and does not mean](/blog/watching-tiktok-without-an-account-privacy) and TokLens' current [Privacy & Data Handling disclosure](/privacy).
+If your concern is viewing without signing in, read [what “no login” does and does not mean](/blog/watching-tiktok-without-an-account-privacy) and TokProfile' current [Privacy & Data Handling disclosure](/privacy).
 
 ## Review the setting in TikTok
 

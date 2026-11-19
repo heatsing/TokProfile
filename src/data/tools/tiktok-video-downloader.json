@@ -4,32 +4,32 @@
   "routing": "fixed",
   "template": "video-downloader",
   "toolType": "video",
-  "applicationCategory": "MultimediaApplication",
-  "updatedAt": "2026-07-28",
-  "title": "TikTok Video Downloader — Safe Public Video Saving",
-  "description": "Validate a public TikTok video URL and review rights-aware download options with rate limits, temporary processing and automatic cleanup.",
-  "h1": "TikTok Video Downloader",
-  "breadcrumb": "TikTok Video Downloader",
+  "applicationCategory": "UtilitiesApplication",
+  "updatedAt": "2026-11-20",
+  "title": "TikTok Video Link Checker — Validate Public Video URLs",
+  "description": "Check whether a full public TikTok video URL has a valid host, creator path and video ID. No login, media fetch or download delivery is provided.",
+  "h1": "TikTok Video Link Checker",
+  "breadcrumb": "TikTok Video Link Checker",
   "badge": "Rights-aware by design",
-  "intro": "Paste a public TikTok video link to validate it and review safe download availability. Only save content you own or have permission to use.",
+  "intro": "Paste a full public TikTok video link to validate its host, creator path and video ID. TokProfile does not currently fetch or download the media file.",
   "useCases": [
     {
-      "title": "Save your own published media",
-      "description": "Validate the canonical URL for a public video you created before requesting an eligible temporary download."
+      "title": "Check a copied video URL",
+      "description": "Confirm that a link points to one public TikTok video rather than a profile, search page or unrelated domain."
     },
     {
-      "title": "Handle licensed campaign assets",
-      "description": "Use a rights-confirmed workflow when a creator has explicitly authorized a marketer to retain a campaign deliverable."
+      "title": "Record a stable video identifier",
+      "description": "Extract the creator handle and video identifier from a supported canonical URL for an authorized content workflow."
     },
     {
-      "title": "Verify a video before processing",
-      "description": "Reject profile pages, unrelated domains and malformed identifiers before any media-source request is attempted."
+      "title": "Reject unsupported inputs",
+      "description": "Catch profile pages, unrelated domains, unsupported redirects and malformed identifiers before any later processing."
     }
   ],
   "examples": [
     {
       "title": "Accepted canonical video URL",
-      "description": "A full HTTPS tiktok.com/@creator/video/123 URL can proceed to identity validation and rights confirmation."
+      "description": "A full HTTPS tiktok.com/@creator/video/123 URL can be checked for its host, creator handle and video identifier."
     },
     {
       "title": "Rejected profile or short link",
@@ -39,96 +39,96 @@
   "tips": [
     {
       "title": "Confirm ownership or permission",
-      "description": "Technical availability never replaces copyright, creator consent or the license needed for reuse."
+      "description": "A valid URL never replaces copyright, creator consent or the license needed for reuse."
     },
     {
-      "title": "Inspect the preview identity",
-      "description": "Check the creator and video identifier before choosing any download option or storing a campaign asset."
+      "title": "Inspect the parsed identity",
+      "description": "Check the creator handle and video identifier before using a link in an authorized workflow."
     },
     {
-      "title": "Expect temporary delivery",
-      "description": "Validated media expires quickly and successful delivery consumes the temporary server copy rather than creating a library."
+      "title": "Understand the limitation",
+      "description": "The current result validates URL structure only. It does not prove availability, ownership or permission and does not return media."
     }
   ],
-  "faqEyebrow": "Downloader FAQ",
-  "faqTitle": "Safe use, clearly explained",
-  "faqDescription": "Accepted URLs, rights boundaries, temporary retention and download availability.",
+  "faqEyebrow": "Link checker FAQ",
+  "faqTitle": "Inputs and limitations, clearly explained",
+  "faqDescription": "Accepted URLs, parsed fields, rights boundaries and current media limitations.",
   "faq": [
     {
-      "question": "What URLs does the TikTok video downloader accept?",
+      "question": "What URLs does the TikTok video link checker accept?",
       "answer": "The validator accepts full HTTPS TikTok video URLs such as tiktok.com/@creator/video/123. Profile pages, short links and other domains are rejected."
     },
     {
-      "question": "Can I save any TikTok video?",
-      "answer": "No. You should only save content you own or have explicit permission to use. Availability can also be limited by privacy, removal, regional or platform restrictions."
+      "question": "Does a valid result mean I can save the video?",
+      "answer": "No. The result confirms supported URL structure only. It does not grant rights, prove media availability or return a video file."
     },
     {
-      "question": "Does TokProfile keep downloaded videos?",
-      "answer": "No. Permanent user-media storage is prohibited. Validated media can only use temporary processing storage, expires within 15 minutes and is removed after delivery."
+      "question": "Does TokProfile fetch or store the video?",
+      "answer": "No. The current checker parses and validates the submitted URL. It does not fetch the video bytes or maintain a user-media library."
     },
     {
-      "question": "Why are download options currently unavailable?",
-      "answer": "TokProfile enables downloads only after a verified media source and the returned bytes pass every security check. The current preview validates the video URL without scraping or inventing a media file."
+      "question": "Why is there no download button after a valid result?",
+      "answer": "No verified media source is connected. TokProfile shows the actual validation result instead of enabling a button that cannot deliver a real file."
     },
     {
-      "question": "How does TokProfile protect the download service?",
-      "answer": "The service uses a TikTok domain whitelist, HTTPS-only URLs, request limits, small JSON request bodies, MP4 file signatures, size limits, random temporary filenames and cleanup controls."
+      "question": "How does TokProfile protect the checker?",
+      "answer": "The checker uses an HTTPS TikTok domain whitelist, strict video-path validation, small JSON request bodies and request limits. It does not request arbitrary URLs or fetch media bytes."
     }
   ],
   "relatedTools": [
     {
-      "label": "TikTok Profile Viewer",
-      "href": "/tiktok-profile-viewer"
+      "label": "Engagement Calculator",
+      "href": "/tiktok-engagement-rate-calculator"
     },
     {
-      "label": "TikTok Video Viewer",
-      "href": "/viewer?mode=video"
+      "label": "TokProfile Help",
+      "href": "/help"
     },
     {
-      "label": "TikTok Privacy Guides",
+      "label": "TikTok Research Guides",
       "href": "/blog"
     },
     {
-      "label": "TikTok Engagement Calculator",
-      "href": "/tiktok-engagement-rate-calculator"
+      "label": "Privacy Policy",
+      "href": "/privacy"
     }
   ],
   "keywords": [
-    "TikTok video downloader",
-    "save public TikTok video",
+    "TikTok video link checker",
+    "validate TikTok video URL",
     "TikTok URL validator",
     "temporary media download"
   ],
   "ui": {
     "howToSteps": [
       {
-        "title": "1. Copy the video link",
+        "title": "1. Copy one video link",
         "description": "Open the public video in TikTok, choose Share, then select Copy link.",
         "cues": ["Share", "Copy link"]
       },
       {
-        "title": "2. Paste and confirm",
-        "description": "Paste the link above and confirm that you own the video or have permission to save it.",
+        "title": "2. Paste and confirm rights",
+        "description": "Paste the full link and confirm that you own the video or have permission for your intended use.",
         "cues": ["Paste link", "Confirm rights"]
       },
       {
-        "title": "3. Review availability",
-        "description": "TokProfile validates the URL and shows an eligible option only when every media check passes.",
-        "cues": ["Check video", "Review result"]
+        "title": "3. Review the parsed result",
+        "description": "TokProfile checks the domain and path, then shows the creator handle and video ID when the URL is supported.",
+        "cues": ["Check video", "URL result"]
       }
     ],
     "downloadLocations": [
       {
-        "title": "iPhone and iPad",
-        "description": "If a file is available, open Files, tap Browse, then check Downloads or your selected browser download location."
+        "title": "Supported result",
+        "description": "A supported result shows the creator handle and video identifier parsed from the submitted canonical URL."
       },
       {
-        "title": "Android",
-        "description": "Open your browser download list or look in the Downloads folder in the Files app."
+        "title": "Unsupported result",
+        "description": "A profile, search page, unrelated host, unsupported short link or malformed identifier returns a clear validation error."
       },
       {
-        "title": "Windows and Mac",
-        "description": "Check your browser download history or the Downloads folder selected in your browser settings."
+        "title": "No media delivery",
+        "description": "The current checker does not request video bytes, create a temporary media file or place anything in your Downloads folder."
       }
     ],
     "helpItems": [
@@ -137,8 +137,8 @@
         "description": "Copy the original video URL again if you pasted a profile, search result, short link or unrelated page."
       },
       {
-        "title": "Check the available file details",
-        "description": "Format and quality depend on a verified source file. TokProfile does not invent unavailable versions."
+        "title": "Read the returned fields",
+        "description": "The creator handle and video ID come from the URL. They are not a live media, privacy or ownership check."
       },
       {
         "title": "Respect access and ownership limits",
@@ -146,14 +146,14 @@
       }
     ],
     "relatedToolDescriptions": {
-      "/tiktok-profile-viewer": "Look up a supported public TikTok profile.",
-      "/viewer?mode=video": "Open the viewer for a supported public video.",
+      "/tiktok-engagement-rate-calculator": "Estimate a follower-based engagement rate with a visible formula.",
+      "/help": "See accepted inputs, result meanings and current product limitations.",
       "/blog": "Read practical privacy and public-content guides.",
-      "/tiktok-engagement-rate-calculator": "Estimate engagement with a visible formula."
+      "/privacy": "Review current request, calculator and infrastructure data handling."
     },
     "safetyEyebrow": "Safety notice",
-    "safetyTitle": "Temporary processing, never a media library",
-    "safetyDescription": "TokProfile does not permanently store user media, bypass private content controls or fetch arbitrary URLs. Download delivery remains disabled until a verified media source passes every file check.",
+    "safetyTitle": "URL validation, not media delivery",
+    "safetyDescription": "TokProfile checks only supported public TikTok video URLs. It does not fetch or store video bytes, bypass private content controls, grant reuse rights or enable an unavailable download.",
     "safetyControls": [
       {
         "icon": "shield",

@@ -39,7 +39,7 @@
   "tips": [
     {
       "title": "Keep source labels visible",
-      "description": "Separate fields returned after creator authorization from averages and rates calculated by TokLens."
+      "description": "Separate fields returned after creator authorization from averages and rates calculated by TokProfile."
     },
     {
       "title": "Compare equivalent samples",
@@ -56,7 +56,7 @@
   "faq": [
     {
       "question": "What is TikTok creator analytics?",
-      "answer": "TokLens converts supported public profile and video fields from a creator-authorized snapshot into estimated metrics with visible formulas and sample boundaries."
+      "answer": "TokProfile converts supported public profile and video fields from a creator-authorized snapshot into estimated metrics with visible formulas and sample boundaries."
     },
     {
       "question": "Who is this analytics tool for?",
@@ -68,7 +68,7 @@
     },
     {
       "question": "Is this official TikTok data?",
-      "answer": "The supported input fields can come from TikTok after creator authorization, but the displayed averages and rates are TokLens estimates, not official TikTok analytics. Private insights such as watch time and audience demographics are not inferred."
+      "answer": "The supported input fields can come from TikTok after creator authorization, but the displayed averages and rates are TokProfile estimates, not official TikTok analytics. Private insights such as watch time and audience demographics are not inferred."
     },
     {
       "question": "What are the limitations?",

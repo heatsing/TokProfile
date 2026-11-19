@@ -75,17 +75,9 @@ function formatCapturedAt(value: string) {
   }).format(new Date(value));
 }
 
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: Promise<{ capture?: string; connection?: string; q?: string }>;
-}): Promise<Metadata> {
-  const { capture, connection, q } = await searchParams;
-  const hasTransientParameters = Boolean(
-    q?.trim() || capture?.trim() || connection?.trim(),
-  );
+export async function generateMetadata(): Promise<Metadata> {
   const page = await requireToolPage("tiktok-analytics");
-  return buildToolPageMetadata(page, { noindex: hasTransientParameters });
+  return buildToolPageMetadata(page, { noindex: true });
 }
 
 export default async function TikTokAnalyticsPage({

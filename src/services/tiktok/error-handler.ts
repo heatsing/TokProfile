@@ -9,7 +9,7 @@ export function handleTikTokToolError(error: unknown): TikTokToolErrorShape {
 
   return new TikTokToolError(
     "INTERNAL_ERROR",
-    "TokLens could not prepare this result. Please try again.",
+    "TokProfile could not prepare this result. Please try again.",
     { cause: error, retryable: true },
   ).toJSON();
 }

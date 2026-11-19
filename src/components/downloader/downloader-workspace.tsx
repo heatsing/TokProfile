@@ -176,32 +176,21 @@ export function DownloaderWorkspace() {
               </div>
             </dl>
 
-            {state.data.options.map((option) => (
-              <div
-                key={option.id}
-                className="mt-3 flex flex-col gap-3 rounded-lg border border-[#dbe6e3] p-4 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <div>
-                  <p className="text-[13px] font-extrabold text-[#172a2d]">
-                    {option.label} · {option.format}
-                  </p>
-                  <p className="mt-1 text-xs leading-5 text-[#657572]">
-                    {option.description}
-                  </p>
-                </div>
-                <span className="shrink-0 rounded-full bg-[#eef4f2] px-3 py-1.5 text-xs font-bold text-[#526663]">
-                  Not available
-                </span>
-              </div>
-            ))}
+            <div className="mt-3 rounded-lg border border-[#dbe6e3] p-4">
+              <p className="text-[13px] font-extrabold text-[#172a2d]">
+                URL validation complete
+              </p>
+              <p className="mt-1 text-xs leading-5 text-[#657572]">
+                This result does not fetch the source video or create a downloadable file.
+              </p>
+            </div>
 
             <p className="mt-4 flex items-start gap-2 text-xs leading-5 text-[#657572]">
               <Clock3
                 className="mt-0.5 size-3.5 shrink-0 text-[#087568]"
                 aria-hidden="true"
               />
-              Temporary media expires within {state.data.storagePolicy.retentionMinutes}{" "}
-              minutes and is deleted after delivery.
+              No media bytes are requested or stored by the current checker.
             </p>
           </div>
         ) : null}

@@ -7,7 +7,7 @@ tags:
   - no login TikTok viewer
   - TikTok viewing privacy
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Privacy & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -38,7 +38,7 @@ However:
 - Public-content availability still depends on privacy, age, region and platform rules.
 - A no-login service cannot unlock private content.
 
-Before using TokLens, read its current [Privacy & Data Handling disclosure](/privacy).
+Before using TokProfile, read its current [Privacy & Data Handling disclosure](/privacy).
 
 ## Who is this guide for?
 
@@ -49,7 +49,7 @@ This guide is for someone who:
 - Wants to understand Profile View History before browsing.
 - Uses private browsing and assumes it hides the network request.
 - Encounters a private, restricted or unavailable post.
-- Wants to know what TokLens currently does with a Viewer input.
+- Wants to know what TokProfile currently does with a Viewer input.
 
 It does not provide instructions for bypassing TikTok controls or hiding prohibited activity.
 
@@ -200,13 +200,13 @@ If a site claims it can unlock private TikTok videos without permission, do not 
 
 For a profile-field inventory, read [What Information Is Public on a TikTok Profile?](/blog/what-information-is-public-on-tiktok).
 
-## How TokLens currently handles no-login tools
+## How TokProfile currently handles no-login tools
 
-TokLens has different data paths for different tools. “No login” should not be used as one description for every feature.
+TokProfile has different data paths for different tools. “No login” should not be used as one description for every feature.
 
 ### Public Viewer input
 
-The current TokLens Viewer:
+The current TokProfile Viewer:
 
 - Accepts a username or supported public TikTok URL.
 - Sends the input in the page URL as a GET query.
@@ -215,7 +215,7 @@ The current TokLens Viewer:
 - Does not ask for TikTok credentials.
 - Does not currently have a live public-profile data connector.
 
-The query can still appear in the address bar, browser history and hosting request records. TokLens does not describe that flow as `100% anonymous`.
+The query can still appear in the address bar, browser history and hosting request records. TokProfile does not describe that flow as `100% anonymous`.
 
 ### Engagement Calculator
 
@@ -223,8 +223,8 @@ The current Calculator:
 
 - Holds input values in browser component state.
 - Performs the calculation in the browser.
-- Does not send those values to a TokLens API.
-- Does not require a TokLens or TikTok account.
+- Does not send those values to a TokProfile API.
+- Does not require a TokProfile or TikTok account.
 
 The browser may still restore local form state, and loading the page still creates ordinary web requests.
 
@@ -250,17 +250,17 @@ Do not describe authorized analytics as no-login viewing.
 
 ### Product analytics status
 
-GA4 and PostHog are planned but are not integrated into the current TokLens runtime reviewed on July 26, 2026.
+GA4 and PostHog are planned but are not integrated into the current TokProfile runtime reviewed on July 26, 2026.
 
-Hosting, CDN and firewall observability are separate from product analytics. The production hosting configuration is not linked in this workspace, so TokLens does not publish an unverified exact infrastructure log-retention period.
+Hosting, CDN and firewall observability are separate from product analytics. The production hosting configuration is not linked in this workspace, so TokProfile does not publish an unverified exact infrastructure log-retention period.
 
 ## Four practical examples
 
-### Entering a public username in TokLens
+### Entering a public username in TokProfile
 
 Sam enters `@example` in the Viewer.
 
-TokLens parses the value without a TikTok login and does not write it to an application database in the current implementation. The value appears in the page URL and may appear in Sam's browser history and hosting request records.
+TokProfile parses the value without a TikTok login and does not write it to an application database in the current implementation. The value appears in the page URL and may appear in Sam's browser history and hosting request records.
 
 This is no-login input validation, not complete anonymity.
 
@@ -329,6 +329,6 @@ A page that answers only “no login required” has not answered the whole priv
 
 TikTok's [public and private account guidance](https://support.tiktok.com/en/account-and-privacy/account-privacy-settings/making-your-account-public-or-private) explains that public posts may be visible off TikTok while private content requires approved followers. TikTok's [Profile View History guidance](https://support.tiktok.com/en/account-and-privacy/account-privacy-settings/profile-view-history) documents the separate reciprocal account feature.
 
-The Internet Engineering Task Force's [HTTP Semantics specification](https://www.rfc-editor.org/rfc/rfc9110) explains HTTP request fields including referrer information and its privacy considerations. Vercel's [Runtime Logs documentation](https://vercel.com/docs/logs/runtime) illustrates the request paths, search parameters, browser and IP-related information a planned hosting platform may process; TokLens' exact production configuration remains unverified.
+The Internet Engineering Task Force's [HTTP Semantics specification](https://www.rfc-editor.org/rfc/rfc9110) explains HTTP request fields including referrer information and its privacy considerations. Vercel's [Runtime Logs documentation](https://vercel.com/docs/logs/runtime) illustrates the request paths, search parameters, browser and IP-related information a planned hosting platform may process; TokProfile' exact production configuration remains unverified.
 
-TokLens-specific statements are based on the source implementation and [Privacy & Data Handling disclosure](/privacy) reviewed July 26, 2026. This article does not promise anonymity or describe every browser, network, TikTok or future deployment configuration.
+TokProfile-specific statements are based on the source implementation and [Privacy & Data Handling disclosure](/privacy) reviewed July 26, 2026. This article does not promise anonymity or describe every browser, network, TikTok or future deployment configuration.

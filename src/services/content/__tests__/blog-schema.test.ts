@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { estimateReadingMinutes, parseBlogFrontmatter } from "../blog-schema";
 
 const validFrontmatter = {
-  author: { name: "TokLens Editorial", role: "Data & Content Team" },
+  author: { name: "TokProfile Editorial", role: "Data & Content Team" },
   category: "TikTok Analytics",
   description: "A transparent methodology.",
   publishedAt: "2026-07-26",

@@ -1,13 +1,13 @@
 ---
-title: "How TokLens Estimates TikTok Engagement"
-description: "A transparent explanation of TokLens engagement formulas, sample boundaries, unavailable data and responsible interpretation."
+title: "How TokProfile Estimates TikTok Engagement"
+description: "A transparent explanation of TokProfile engagement formulas, sample boundaries, unavailable data and responsible interpretation."
 category: "TikTok Analytics"
 tags:
   - TikTok engagement rate
   - analytics methodology
   - creator metrics
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Data & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -16,9 +16,9 @@ status: "published"
 
 TikTok metrics are easy to calculate and surprisingly easy to mislabel. A percentage can look precise even when the underlying sample is incomplete, the denominator is unclear, or public counts have changed since collection.
 
-TokLens treats every public-account metric as an **estimate**. It is not official TikTok data, it does not replace first-party creator analytics, and it does not infer private signals such as watch time, audience demographics, saves, conversion or revenue.
+TokProfile treats every public-account metric as an **estimate**. It is not official TikTok data, it does not replace first-party creator analytics, and it does not infer private signals such as watch time, audience demographics, saves, conversion or revenue.
 
-If you are deciding whether to calculate engagement by followers or by views, start with [TikTok Engagement Rate Formula: Followers vs Views Explained](/blog/tiktok-engagement-rate-formula). This page documents the broader TokLens analytics methodology.
+If you are deciding whether to calculate engagement by followers or by views, start with [TikTok Engagement Rate Formula: Followers vs Views Explained](/blog/tiktok-engagement-rate-formula). This page documents the broader TokProfile analytics methodology.
 
 ## What this methodology covers
 
@@ -54,9 +54,9 @@ The [Calculator input guide](/blog/what-counts-as-tiktok-engagement-in-calculato
 
 `(Total likes + comments + shares) ÷ Total views × 100`
 
-TokLens labels the denominator because “engagement rate” has more than one common definition. The creator analytics report uses views. The standalone calculator uses followers and displays that different formula beside the result.
+TokProfile labels the denominator because “engagement rate” has more than one common definition. The creator analytics report uses views. The standalone calculator uses followers and displays that different formula beside the result.
 
-When views are zero or unavailable, TokLens does not calculate the rate. Dividing by an unknown or zero denominator would create a misleading number.
+When views are zero or unavailable, TokProfile does not calculate the rate. Dividing by an unknown or zero denominator would create a misleading number.
 
 ### Posting frequency
 
@@ -74,7 +74,7 @@ If two posts have the same calculated rate, views are used as a tie-breaker. Thi
 
 ## Where public data stops
 
-TikTok's developer documentation lists public video fields such as view, like, comment and share counts. Availability still depends on authorized access, product configuration and the content itself. TokLens does not bypass private accounts or use placeholder numbers when a verified source is missing.
+TikTok's developer documentation lists public video fields such as view, like, comment and share counts. Availability still depends on authorized access, product configuration and the content itself. TokProfile does not bypass private accounts or use placeholder numbers when a verified source is missing.
 
 First-party creator tools may include richer insights. Those private signals should not be reconstructed from public counts. A public estimate and an account owner's first-party dashboard answer different questions.
 
@@ -97,4 +97,4 @@ The most useful analytics report is not the one with the most numbers. It is the
 
 Our field model is aligned with TikTok's published [Video Object documentation](https://developers.tiktok.com/doc/tiktok-api-v2-video-object/). For first-party capabilities, creators should consult TikTok's current [comment insights guidance](https://support.tiktok.com/en/using-tiktok/growing-your-audience/comment-insights-on-tiktok) and their own TikTok Studio account.
 
-TokLens Editorial reviews this methodology when TikTok changes documented fields, when our sample rules change, or when a calculation definition changes. The updated date at the top of this article records the latest editorial review.
+TokProfile Editorial reviews this methodology when TikTok changes documented fields, when our sample rules change, or when a calculation definition changes. The updated date at the top of this article records the latest editorial review.

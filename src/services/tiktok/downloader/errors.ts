@@ -24,7 +24,7 @@ export function handleDownloaderError(error: unknown): DownloaderErrorShape {
 
   return new DownloaderSecurityError(
     "INTERNAL_ERROR",
-    "TokLens could not prepare this video preview. Please try again.",
+    "TokProfile could not prepare this video preview. Please try again.",
     { cause: error },
   ).toJSON();
 }

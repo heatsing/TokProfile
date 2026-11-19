@@ -21,15 +21,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/blog",
-    siteName: "TokLens",
-    title: `${pageTitle} | TokLens`,
+    siteName: "TokProfile",
+    title: `${pageTitle} | TokProfile`,
     description: pageDescription,
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "TokLens TikTok research guides",
+        alt: "TokProfile TikTok research guides",
       },
     ],
   },

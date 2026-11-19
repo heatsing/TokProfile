@@ -7,7 +7,7 @@ tags:
   - TikTok privacy
   - profile visibility
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Privacy & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -182,11 +182,11 @@ The [no-login privacy guide](/blog/watching-tiktok-without-an-account-privacy) e
 
 Profile visits also have a separate conditional setting. Read [Can People See Who Viewed Their TikTok Profile?](/blog/can-people-see-who-viewed-their-tiktok-profile) before treating a profile visit as always visible or always hidden.
 
-## TokLens capability status
+## TokProfile capability status
 
-TokLens currently validates supported TikTok usernames and public profile URLs and prepares explicit result states.
+TokProfile currently validates supported TikTok usernames and public profile URLs and prepares explicit result states.
 
-The live public-data connector is not yet available. TokLens therefore does not claim that entering a username will return complete profile metrics or videos today.
+The live public-data connector is not yet available. TokProfile therefore does not claim that entering a username will return complete profile metrics or videos today.
 
 Until that connector is implemented and verified:
 

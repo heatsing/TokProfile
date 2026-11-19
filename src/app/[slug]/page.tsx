@@ -21,7 +21,7 @@ export async function generateMetadata({
   const page = await getToolPage(slug);
 
   if (!page || page.routing !== "dynamic") {
-    return {};
+    notFound();
   }
 
   return buildToolPageMetadata(page);

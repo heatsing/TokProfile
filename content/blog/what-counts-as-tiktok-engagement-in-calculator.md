@@ -7,14 +7,14 @@ tags:
   - TikTok interactions
   - engagement rate inputs
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Data & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
 status: "published"
 ---
 
-For the TokLens TikTok Engagement Rate Calculator, engagement means the average likes, average comments and average shares from one consistent post sample.
+For the TokProfile TikTok Engagement Rate Calculator, engagement means the average likes, average comments and average shares from one consistent post sample.
 
 Do not add views, saves, follows, profile visits, clicks or total interaction counts to those three input fields. They may be useful metrics elsewhere, but they are not inputs in this Calculator's numerator.
 
@@ -52,7 +52,7 @@ This input guide is for:
 
 It is not a guide to TikTok's recommendation system and does not define one universal industry engagement standard.
 
-## What the TokLens Calculator accepts
+## What the TokProfile Calculator accepts
 
 The Calculator has four inputs.
 
@@ -112,7 +112,7 @@ If a share count is unavailable, do not enter zero merely because the Calculator
 
 ### Views: not included in this formula
 
-Views are not one of the TokLens Calculator's four inputs.
+Views are not one of the TokProfile Calculator's four inputs.
 
 A view-based engagement estimate uses a different denominator:
 
@@ -122,7 +122,7 @@ Do not enter average views into the follower field or add views to the interacti
 
 ### Favorites or saves: not included
 
-The TokLens Calculator does not currently have a favorites or saves field.
+The TokProfile Calculator does not currently have a favorites or saves field.
 
 TikTok One Project Reporting currently lists `Favorites` as a separate project metric, while its documented engagement-rate formula uses likes, comments and shares divided by views. TikTok's Display API Video Object lists like, comment, share and view counts but does not list a favorite count.
 
@@ -136,7 +136,7 @@ Follower growth can be useful in an account or campaign analysis, but it answers
 
 ### Reposts: not included
 
-TokLens does not have a repost input. Do not add a separately displayed repost figure to shares unless the source explicitly defines it as part of the share count used.
+TokProfile does not have a repost input. Do not add a separately displayed repost figure to shares unless the source explicitly defines it as part of the share count used.
 
 ### Profile visits: not included
 
@@ -148,7 +148,7 @@ Clicks, leads, purchases and revenue are outcome metrics. They should be analyze
 
 ### Watch time and completion: not included
 
-Viewing behavior can help a creator understand attention, but it is not part of the follower-based TokLens equation.
+Viewing behavior can help a creator understand attention, but it is not part of the follower-based TokProfile equation.
 
 For the wider decision framework, read [When TikTok Engagement Rate Is Not Enough](/blog/when-tiktok-engagement-rate-is-not-enough).
 
@@ -232,7 +232,7 @@ Read the input label before entering a value:
 - `Average likes` requires 1,200.
 - `Total likes` would require 6,000.
 
-TokLens requests averages.
+TokProfile requests averages.
 
 ## Do not mix sample sizes
 
@@ -317,7 +317,7 @@ Availability can depend on the product, account, authorization, content and regi
 
 A value produced by adding the selected post counts and dividing by the post count.
 
-TokLens receives this average as an input; it does not currently verify the underlying posts in the standalone Calculator.
+TokProfile receives this average as an input; it does not currently verify the underlying posts in the standalone Calculator.
 
 ### Estimated input
 
@@ -395,7 +395,7 @@ Before opening the Calculator, record:
 
 ## Use the Calculator
 
-Open the [TokLens TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) after preparing the four inputs.
+Open the [TokProfile TikTok Engagement Rate Calculator](/tiktok-engagement-rate-calculator) after preparing the four inputs.
 
 The tool:
 
@@ -420,8 +420,8 @@ If two completed calculations still disagree, use [Why TikTok Engagement Calcula
 
 TikTok's [Video Object documentation](https://developers.tiktok.com/doc/tiktok-api-v2-video-object/) lists `like_count`, `comment_count`, `share_count` and `view_count` as video fields. It also distinguishes the `share_url` from `share_count`.
 
-TikTok One's current [Project Reporting documentation](https://ads.tiktok.com/help/article/about-tiktok-one-campaign-reporting) defines its engagement-rate interactions as likes, comments and shares divided by total video views, while listing Favorites as a separate metric. This does not make that view-based formula interchangeable with the follower-based TokLens Calculator.
+TikTok One's current [Project Reporting documentation](https://ads.tiktok.com/help/article/about-tiktok-one-campaign-reporting) defines its engagement-rate interactions as likes, comments and shares divided by total video views, while listing Favorites as a separate metric. This does not make that view-based formula interchangeable with the follower-based TokProfile Calculator.
 
 TikTok's [TikTok Studio guidance](https://support.tiktok.com/en/using-tiktok/creating-videos/tiktok-studio) explains that creator analytics, post metrics and follower insights can be available in separate sections, subject to product and regional availability.
 
-The input workflow, examples and missing-value rules in this article are TokLens methodology. All counts are illustrative. This article was reviewed on July 26, 2026.
+The input workflow, examples and missing-value rules in this article are TokProfile methodology. All counts are illustrative. This article was reviewed on July 26, 2026.

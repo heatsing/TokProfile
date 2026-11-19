@@ -24,15 +24,9 @@ import {
 import { requireToolPage } from "@/services/content/tool-pages";
 import { tiktokToolEngine } from "@/services/tiktok";
 
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: Promise<{ q?: string }>;
-}): Promise<Metadata> {
-  const { q } = await searchParams;
-  const hasQuery = Boolean(q?.trim());
+export async function generateMetadata(): Promise<Metadata> {
   const page = await requireToolPage("tiktok-profile-viewer");
-  return buildToolPageMetadata(page, { noindex: hasQuery });
+  return buildToolPageMetadata(page, { noindex: true });
 }
 
 const workflowIcons = { eye: Eye, link: Link2, search: Search } as const;

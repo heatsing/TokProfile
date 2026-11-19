@@ -1,143 +1,111 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 
-import { BrandMark } from "@/components/brand-mark";
-import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
+import { primaryNavigation } from "@/config/public-navigation";
 
-const utilityNavigation = [
-  { label: "Download TikTok Stories" },
-  { label: "Download TikTok MP3" },
-  { href: "/viewer?mode=story", label: "Story Viewer" },
-  { href: "/tiktok-profile-viewer", label: "Profile Viewer" },
-] as const;
+function isActivePath(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
-export function SiteHeader({ variant = "default" }: { variant?: "default" | "utility" }) {
-  if (variant === "utility") {
-    return (
-      <header className="relative z-50 border-b border-[#dbe6e3] bg-white">
-        <div className="container flex h-[68px] items-center justify-between">
-          <Link
-            href="/"
-            aria-label="TokProfile home"
-            className="font-display text-lg font-extrabold tracking-[-0.045em] text-[#172a2d]"
-          >
-            Tok<span className="text-[#087568]">Profile</span>
-          </Link>
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
-            {utilityNavigation.map((link) => (
-              <span key={link.label} className="contents">
-                {"href" in link ? (
-                  <Link
-                    href={link.href}
-                    className="text-xs font-bold text-[#233438] transition-colors hover:text-[#087568]"
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <span
-                    aria-disabled="true"
-                    title="Coming soon"
-                    className="cursor-default text-xs font-bold text-[#233438]"
-                  >
-                    {link.label}
-                  </span>
-                )}
-              </span>
-            ))}
-          </nav>
-          <details className="group relative lg:hidden">
-            <summary
-              className="grid size-11 cursor-pointer list-none place-items-center rounded-lg text-[#172a2d] transition-colors hover:bg-[#eef5f3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087568] [&::-webkit-details-marker]:hidden"
-              aria-label="Open navigation"
-            >
-              <Menu className="size-5" />
-            </summary>
-            <nav
-              aria-label="Mobile navigation"
-              className="absolute right-0 top-14 w-64 rounded-xl border border-[#dbe6e3] bg-white p-2 shadow-lift"
-            >
-              {utilityNavigation.map((link) => (
-                <span key={link.label} className="contents">
-                  {"href" in link ? (
-                    <Link
-                      href={link.href}
-                      className="flex items-center justify-between rounded-lg px-4 py-3 text-[13px] font-semibold text-[#31474a] hover:bg-[#eef5f3] hover:text-[#087568]"
-                    >
-                      {link.label}
-                      <ArrowUpRight className="size-3.5" />
-                    </Link>
-                  ) : (
-                    <span
-                      aria-disabled="true"
-                      className="flex items-center justify-between rounded-lg px-4 py-3 text-[13px] font-semibold text-[#7b8987]"
-                    >
-                      {link.label}
-                      <span className="text-[10px] font-bold uppercase tracking-wider">
-                        Soon
-                      </span>
-                    </span>
-                  )}
-                </span>
-              ))}
-            </nav>
-          </details>
-        </div>
-      </header>
-    );
-  }
+export function SiteHeader({
+  variant: _variant = "default",
+}: {
+  variant?: "default" | "utility";
+}) {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
 
   return (
-    <header className="relative z-50 border-b border-ink/10 bg-cream/90 backdrop-blur-xl">
-      <div className="container flex h-[72px] items-center justify-between">
-        <BrandMark />
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
-          {siteConfig.navigation.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-ink/70 transition-colors hover:text-ink"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" asChild>
-            <Link href="/viewer">Log in</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/viewer">
-              Analyze free <ArrowUpRight className="size-4" />
-            </Link>
-          </Button>
-        </div>
-        <details className="group relative md:hidden">
-          <summary
-            className="grid size-11 cursor-pointer list-none place-items-center rounded-full text-ink transition-colors hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-acid [&::-webkit-details-marker]:hidden"
-            aria-label="Open navigation"
-          >
-            <Menu className="size-5" />
-          </summary>
-          <nav
-            aria-label="Mobile navigation"
-            className="absolute right-0 top-14 w-64 rounded-2xl border border-ink/10 bg-white p-3 shadow-lift"
-          >
-            {siteConfig.navigation.map((link) => (
+    <header className="relative z-50 border-b border-[#dbe6e3] bg-white">
+      <div className="container flex h-[64px] items-center justify-between">
+        <Link
+          href="/"
+          aria-label="TokProfile home"
+          className="font-display text-base font-extrabold tracking-[-0.045em] text-[#172a2d] sm:text-lg"
+        >
+          Tok<span className="text-[#087568]">Profile</span>
+        </Link>
+
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
+          {primaryNavigation.map((link) => {
+            const active = isActivePath(pathname, link.href);
+            return (
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-ink/70 hover:bg-sand hover:text-ink"
+                aria-current={active ? "page" : undefined}
+                className={`text-xs font-bold transition-colors ${
+                  active ? "text-[#087568]" : "text-[#31474a] hover:text-[#087568]"
+                }`}
               >
                 {link.label}
-                <ArrowUpRight className="size-3.5" />
               </Link>
-            ))}
-            <Button className="mt-2 w-full" asChild>
-              <Link href="/viewer">Analyze free</Link>
-            </Button>
+            );
+          })}
+        </nav>
+
+        <button
+          ref={menuButtonRef}
+          type="button"
+          aria-controls="mobile-navigation"
+          aria-expanded={open}
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          onClick={() => setOpen((current) => !current)}
+          className="grid size-10 place-items-center rounded-lg text-[#172a2d] transition-colors hover:bg-[#eef5f3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087568] md:hidden"
+        >
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
+        </button>
+
+        {open ? (
+          <nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
+            className="absolute inset-x-5 top-[72px] rounded-xl border border-[#dbe6e3] bg-white p-2 shadow-lift md:hidden"
+          >
+            {primaryNavigation.map((link) => {
+              const active = isActivePath(pathname, link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                  className={`flex min-h-11 items-center rounded-lg px-4 text-[13px] font-semibold ${
+                    active
+                      ? "bg-[#eef5f3] text-[#087568]"
+                      : "text-[#31474a] hover:bg-[#eef5f3] hover:text-[#087568]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
-        </details>
+        ) : null}
       </div>
     </header>
   );

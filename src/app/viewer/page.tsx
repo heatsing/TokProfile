@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/viewer",
   },
+  robots: { follow: true, index: false },
 };
 
 export default async function ViewerPage({

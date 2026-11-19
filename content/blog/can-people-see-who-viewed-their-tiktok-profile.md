@@ -7,7 +7,7 @@ tags:
   - profile view history
   - TikTok privacy
 author:
-  name: "TokLens Editorial"
+  name: "TokProfile Editorial"
   role: "Privacy & Content Team"
 publishedAt: "2026-07-26"
 updatedAt: "2026-07-26"
@@ -189,11 +189,11 @@ If a third-party page redirects you to TikTok or you interact with embedded TikT
 
 No third-party service should promise that it can prove the absence of every platform, browser or network record.
 
-## TokLens capability status
+## TokProfile capability status
 
-TokLens currently validates supported TikTok usernames and public profile URLs. Its live public-profile data connector is not yet available.
+TokProfile currently validates supported TikTok usernames and public profile URLs. Its live public-profile data connector is not yet available.
 
-TokLens:
+TokProfile:
 
 - Does not ask you to connect a TikTok account for profile input validation.
 - Does not provide a TikTok Profile View History list.
@@ -201,7 +201,7 @@ TokLens:
 - Does not claim that no-login use is fully anonymous.
 - Does not currently claim complete public profile metrics.
 
-Entering a username into TokLens is not the same action as opening that profile inside the TikTok app. Following an official TikTok link afterward moves the user into a different context.
+Entering a username into TokProfile is not the same action as opening that profile inside the TikTok app. Following an official TikTok link afterward moves the user into a different context.
 
 ## Four practical examples
 

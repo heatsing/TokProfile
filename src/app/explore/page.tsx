@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/explore",
   },
+  robots: { follow: true, index: false },
   openGraph: {
     type: "website",
     locale: "en_US",
