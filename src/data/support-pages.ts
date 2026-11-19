@@ -88,9 +88,9 @@ export const supportPages = {
   },
   contact: {
     route: "/contact",
-    title: "Contact TokProfile",
+    title: "Contact TokProfile – Report a Tool Issue",
     description:
-      "Contact TokProfile about product support, privacy, security or copyright concerns.",
+      "Get in touch with TokProfile about a link, file, or tool issue. Find out what information helps us reproduce your problem.",
     h1: "Contact TokProfile",
     kicker: "Support and notices",
     intro:
@@ -121,10 +121,10 @@ export const supportPages = {
   },
   copyright: {
     route: "/copyright",
-    title: "Copyright Notice Process | TokProfile",
+    title: "TokProfile Copyright and Content Reports",
     description:
-      "Learn how to send TokProfile a complete copyright notice concerning content or links shown on the service.",
-    h1: "Copyright Notice Process",
+      "Learn how to report a copyright concern to TokProfile and which details to include so the team can identify the material.",
+    h1: "Copyright and Content Reports",
     kicker: "Rights-holder support",
     intro:
       "TokProfile does not authorize the reuse of third-party media. If you believe a page or link on TokProfile infringes your rights, send a sufficiently detailed notice so it can be reviewed.",
@@ -158,9 +158,9 @@ export const supportPages = {
   },
   privacy: {
     route: "/privacy",
-    title: "Privacy Policy | TokProfile",
+    title: "TokProfile Privacy Policy",
     description:
-      "Read how TokProfile handles video-link checks, calculator inputs, infrastructure request data, cookies and optional account authorization.",
+      "Learn how TokProfile handles information related to tool requests, site visits, and support messages, and how to contact the team about privacy.",
     h1: "Privacy Policy",
     kicker: "Current implementation disclosure",
     intro:
@@ -222,9 +222,9 @@ export const supportPages = {
   },
   terms: {
     route: "/terms",
-    title: "Terms of Service | TokProfile",
+    title: "TokProfile Terms of Service",
     description:
-      "Read the current terms for using TokProfile's public link checker, engagement calculator and editorial guides.",
+      "Read the terms for using TokProfile, including supported tool use, content permissions, and where to send questions.",
     h1: "Terms of Service",
     kicker: "Service boundaries",
     intro:

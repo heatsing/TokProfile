@@ -24,11 +24,11 @@ export default function NotFound() {
             Error 404
           </p>
           <h1 className="mt-3 font-display text-[clamp(2rem,6vw,3.5rem)] font-extrabold tracking-[-0.05em]">
-            This page could not be found.
+            We couldn&apos;t find that page
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-[#596c69]">
-            The address may be incomplete or the page may have moved. Use a verified
-            TokProfile entry point below.
+            The link may be incomplete or the page may have moved. Try the TokProfile
+            homepage or visit TokProfile Help to find the right tool.
           </p>
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
