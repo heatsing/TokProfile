@@ -375,7 +375,7 @@ The Calculator does not:
 
 Use it to produce one labelled follower-based estimate. Then apply the evidence framework above.
 
-TokProfile' public calculation boundaries are documented in [How TokProfile Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
+TokProfile's public calculation boundaries are documented in [How TokProfile Estimates TikTok Engagement](/blog/how-toklens-estimates-tiktok-engagement).
 
 ## A decision statement you can reuse
 

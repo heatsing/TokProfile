@@ -42,7 +42,7 @@ If you already have two different percentages, use [Why TikTok Engagement Calcul
 
 ## Formula 1: engagement rate by followers
 
-TokProfile' standalone calculator uses:
+TokProfile's standalone calculator uses:
 
 `(Average likes + Average comments + Average shares) ÷ Followers × 100`
 
