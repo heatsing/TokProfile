@@ -3,6 +3,7 @@
 ## Current
 
 - Operate the Next.js application on Cloudflare Workers at `https://tokprofile.com`.
+- Use the redesigned TikTok Video Downloader as the root landing page and keep the public Viewer hub at `/explore`.
 - Maintain consistent production metadata, canonical URLs, structured data, and sitemap entries.
 
 ## Next

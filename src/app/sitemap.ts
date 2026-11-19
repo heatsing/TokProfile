@@ -23,6 +23,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/explore`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -38,18 +44,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...routes,
-    ...toolPages.map((page) => ({
-      url: `${baseUrl}${page.route}`,
-      lastModified: new Date(page.updatedAt),
-      changeFrequency:
-        page.template === "engagement-calculator"
-          ? ("monthly" as const)
-          : ("weekly" as const),
-      priority:
-        page.template === "video-downloader" || page.template === "engagement-calculator"
-          ? 0.85
-          : 0.9,
-    })),
+    ...toolPages
+      .filter((page) => page.slug !== "tiktok-video-downloader")
+      .map((page) => ({
+        url: `${baseUrl}${page.route}`,
+        lastModified: new Date(page.updatedAt),
+        changeFrequency:
+          page.template === "engagement-calculator"
+            ? ("monthly" as const)
+            : ("weekly" as const),
+        priority:
+          page.template === "video-downloader" ||
+          page.template === "engagement-calculator"
+            ? 0.85
+            : 0.9,
+      })),
     ...posts.map((post) => ({
       url: `${baseUrl}/blog/${post.slug}`,
       lastModified: new Date(post.updatedAt),

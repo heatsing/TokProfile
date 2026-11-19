@@ -6,7 +6,7 @@ export const siteConfig = {
     "Public TikTok discovery and creator intelligence for viewers, creators, and marketing teams.",
   navigation: [
     { href: "/viewer", label: "Viewer" },
-    { href: "/#popular-tools", label: "Tools" },
+    { href: "/explore#popular-tools", label: "Tools" },
     { href: "/tiktok-analytics", label: "Analytics" },
     { href: "/blog", label: "Guides" },
   ] satisfies NavigationItem[],

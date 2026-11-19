@@ -8,8 +8,8 @@ const footerLinks = [
     title: "Product",
     items: [
       { label: "TikTok Viewer", href: "/viewer" },
-      { label: "Popular Tools", href: "/#popular-tools" },
-      { label: "How It Works", href: "/#how-it-works" },
+      { label: "Popular Tools", href: "/explore#popular-tools" },
+      { label: "How It Works", href: "/explore#how-it-works" },
     ],
   },
   {
@@ -17,7 +17,7 @@ const footerLinks = [
     items: [
       { label: "Profile Viewer", href: "/tiktok-profile-viewer" },
       { label: "Video Viewer", href: "/viewer?mode=video" },
-      { label: "Video Downloader", href: "/tiktok-video-downloader" },
+      { label: "Video Downloader", href: "/" },
       { label: "TikTok Analytics", href: "/tiktok-analytics" },
       {
         label: "Engagement Calculator",
@@ -87,7 +87,7 @@ export function SiteFooter({ variant = "default" }: { variant?: "default" | "uti
           </nav>
 
           <Link
-            href="/tiktok-video-downloader"
+            href="/"
             aria-current="page"
             className="mt-8 inline-flex items-center gap-3 font-display text-xl font-extrabold tracking-[-0.02em] sm:text-2xl"
           >
@@ -166,8 +166,8 @@ export function SiteFooter({ variant = "default" }: { variant?: "default" | "uti
           <p>© {new Date().getFullYear()} TokProfile. Built for public data research.</p>
           <div className="flex gap-5">
             <Link href="/privacy">Privacy</Link>
-            <Link href="/#how-it-works">Public data</Link>
-            <Link href="/#faq">FAQ</Link>
+            <Link href="/explore#how-it-works">Public data</Link>
+            <Link href="/explore#faq">FAQ</Link>
             <Link href="mailto:hello@tokprofile.com">Contact</Link>
           </div>
         </div>

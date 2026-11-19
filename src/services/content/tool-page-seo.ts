@@ -5,17 +5,19 @@ import type { ToolPageData } from "@/types/tool-page";
 
 export function buildToolPageMetadata(
   page: ToolPageData,
-  options: { noindex?: boolean } = {},
+  options: { noindex?: boolean; route?: string } = {},
 ): Metadata {
+  const route = options.route ?? page.route;
+
   return {
     title: page.title,
     description: page.description,
-    alternates: { canonical: page.route },
+    alternates: { canonical: route },
     robots: options.noindex ? { follow: true, index: false } : undefined,
     openGraph: {
       type: "website",
       locale: "en_US",
-      url: page.route,
+      url: route,
       siteName: siteConfig.name,
       title: `${page.title} | ${siteConfig.name}`,
       description: page.description,
@@ -37,8 +39,13 @@ export function buildToolPageMetadata(
   };
 }
 
-export function buildToolPageStructuredData(page: ToolPageData, siteUrl: string) {
-  const canonicalUrl = `${siteUrl}${page.route}`;
+export function buildToolPageStructuredData(
+  page: ToolPageData,
+  siteUrl: string,
+  options: { route?: string } = {},
+) {
+  const route = options.route ?? page.route;
+  const canonicalUrl = route === "/" ? siteUrl : `${siteUrl}${route}`;
 
   return [
     {
@@ -46,12 +53,16 @@ export function buildToolPageStructuredData(page: ToolPageData, siteUrl: string)
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: page.breadcrumb,
-          item: canonicalUrl,
-        },
+        ...(route === "/"
+          ? []
+          : [
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: page.breadcrumb,
+                item: canonicalUrl,
+              },
+            ]),
       ],
     },
     {
