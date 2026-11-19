@@ -46,6 +46,18 @@ export function createProfileViewerState(
     return { profile: result.data, status: "private" };
   }
 
+  if (result.data.source.status !== "available") {
+    return {
+      error: {
+        code: "SERVICE_UNAVAILABLE",
+        message:
+          "The username is valid, but live TikTok profile verification is not connected. No profile details have been retrieved.",
+        retryable: true,
+      },
+      status: "error",
+    };
+  }
+
   return { profile: result.data, status: "success" };
 }
 

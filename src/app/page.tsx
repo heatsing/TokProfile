@@ -59,19 +59,19 @@ const popularTools = [
     icon: UserRoundSearch,
     title: "TikTok Profile Viewer",
     description:
-      "Open a focused view of available public profile details and recent content.",
+      "Validate a username or profile URL. Live profile retrieval is not connected yet.",
     href: "/tiktok-profile-viewer",
     action: "View a profile",
-    status: "Available",
+    status: "Validation only",
   },
   {
     icon: Video,
     title: "TikTok Video Viewer",
     description:
-      "Watch an available public video with its creator, caption and visible metrics.",
+      "Validate a public video URL. Live playback and media retrieval are not connected yet.",
     href: "/viewer?mode=video",
     action: "Open a video",
-    status: "Available",
+    status: "Validation only",
   },
   {
     icon: Download,
@@ -280,13 +280,7 @@ export default function Home() {
                     <span className="grid size-11 place-items-center rounded-2xl bg-sand text-pine transition-colors group-hover:bg-acid">
                       <tool.icon className="size-5" aria-hidden="true" />
                     </span>
-                    <span
-                      className={`rounded-full border px-2.5 py-1 text-[11px] font-bold ${
-                        tool.status === "Available"
-                          ? "border-emerald-700/15 bg-emerald-50 text-emerald-800"
-                          : "border-ink/10 bg-sand text-ink/55"
-                      }`}
-                    >
+                    <span className="rounded-full border border-ink/10 bg-sand px-2.5 py-1 text-[11px] font-bold text-ink/55">
                       {tool.status}
                     </span>
                   </div>

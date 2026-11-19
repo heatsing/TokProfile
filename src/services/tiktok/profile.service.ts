@@ -4,8 +4,9 @@ import { createPublicSource, type TikTokToolService } from "./contracts";
 
 function presentProfile(profile: TikTokProfile): ToolResultViewModel {
   return {
-    description: "The profile input is valid and ready for the public-data connector.",
-    eyebrow: "Public profile",
+    description:
+      "The username format is valid, but no live TikTok profile lookup was performed because the public-data connector is not connected.",
+    eyebrow: "Unverified profile input",
     sections: [
       {
         fields: [
@@ -13,10 +14,10 @@ function presentProfile(profile: TikTokProfile): ToolResultViewModel {
           { label: "Profile URL", value: profile.profileUrl },
           { label: "Source status", value: profile.source.status },
         ],
-        title: "Profile identity",
+        title: "Parsed input only",
       },
     ],
-    title: `@${profile.username}`,
+    title: `@${profile.username} was not verified`,
   };
 }
 

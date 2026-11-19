@@ -63,6 +63,19 @@ describe("profile viewer state", () => {
     });
   });
 
+  it("does not present an unverified username as a retrieved profile", () => {
+    const result = createProfileResult({
+      ...baseProfile,
+      source: { ...baseProfile.source, status: "unverified" },
+      visibility: "unknown",
+    });
+
+    expect(createProfileViewerState(result)).toMatchObject({
+      error: { code: "SERVICE_UNAVAILABLE" },
+      status: "error",
+    });
+  });
+
   it("preserves tool errors", () => {
     const result: TikTokToolResult = {
       data: null,

@@ -5,8 +5,8 @@ import { createPublicSource, type TikTokToolService } from "./contracts";
 function presentStory(story: TikTokStory): ToolResultViewModel {
   return {
     description:
-      "The public story URL was recognized. Availability can change as stories expire.",
-    eyebrow: "Public story",
+      "The URL format was recognized, but live Story availability and media were not checked because the TikTok source connector is not connected.",
+    eyebrow: "Unverified story URL",
     sections: [
       {
         fields: [
@@ -14,10 +14,10 @@ function presentStory(story: TikTokStory): ToolResultViewModel {
           { label: "Story ID", value: story.id ?? "Not provided" },
           { label: "Source status", value: story.source.status },
         ],
-        title: "Story identity",
+        title: "Parsed URL only",
       },
     ],
-    title: `Story by @${story.username}`,
+    title: `Story URL for @${story.username} was not verified`,
   };
 }
 

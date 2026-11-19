@@ -39,17 +39,31 @@ export function ToolResultRenderer({ result }: { result: TikTokToolResult }) {
     );
   }
 
+  const isSourceVerified = result.data.source.status === "available";
+
   return (
     <section
       aria-labelledby="tool-result-title"
       className="rounded-[24px] border border-ink/10 bg-white p-6 sm:p-8"
     >
       <div className="flex items-start gap-4">
-        <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-sand text-pine">
-          <CheckCircle2 className="size-5" />
+        <span
+          className={`grid size-12 shrink-0 place-items-center rounded-2xl ${
+            isSourceVerified ? "bg-sand text-pine" : "bg-amber-50 text-amber-700"
+          }`}
+        >
+          {isSourceVerified ? (
+            <CheckCircle2 className="size-5" />
+          ) : (
+            <AlertTriangle className="size-5" />
+          )}
         </span>
         <div className="min-w-0">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-pine">
+          <p
+            className={`text-xs font-bold uppercase tracking-[0.14em] ${
+              isSourceVerified ? "text-pine" : "text-amber-800"
+            }`}
+          >
             {result.view.eyebrow}
           </p>
           <h2

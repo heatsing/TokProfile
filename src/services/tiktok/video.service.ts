@@ -5,8 +5,8 @@ import { createPublicSource, type TikTokToolService } from "./contracts";
 function presentVideo(video: TikTokVideo): ToolResultViewModel {
   return {
     description:
-      "The public video URL was recognized and is ready for content retrieval.",
-    eyebrow: "Public video",
+      "The URL format was recognized, but no video, audio, duration, or availability was retrieved because the TikTok media connector is not connected.",
+    eyebrow: "Unverified video URL",
     sections: [
       {
         fields: [
@@ -17,10 +17,12 @@ function presentVideo(video: TikTokVideo): ToolResultViewModel {
           },
           { label: "Source status", value: video.source.status },
         ],
-        title: "Video identity",
+        title: "Parsed URL only",
       },
     ],
-    title: video.authorUsername ? `Video by @${video.authorUsername}` : "TikTok video",
+    title: video.authorUsername
+      ? `Video URL for @${video.authorUsername} was not verified`
+      : "TikTok video URL was not verified",
   };
 }
 

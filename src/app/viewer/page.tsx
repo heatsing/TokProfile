@@ -49,7 +49,7 @@ export default async function ViewerPage({
             className="mb-8 inline-flex items-center gap-2 text-xs font-bold text-ink/55 hover:text-ink"
           >
             <ArrowLeft className="size-3.5" />
-            Back to TokLens
+            Back to TokProfile
           </Link>
           <div className="max-w-3xl">
             <Badge className="mb-5 bg-acid">
@@ -60,8 +60,8 @@ export default async function ViewerPage({
               View public TikTok content, clearly.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-ink/60">
-              Enter a username or public TikTok link. TokLens detects the content type,
-              validates the input, and routes it through one shared tool system.
+              Enter a username or public TikTok link. TokProfile detects the content type,
+              validates the input, and labels whether a live source was checked.
             </p>
           </div>
           <div className="mt-8 max-w-3xl">
@@ -80,7 +80,7 @@ export default async function ViewerPage({
                 Privacy boundary
               </h2>
               <p className="mt-3 text-sm leading-6 text-white/60">
-                TokLens is designed for public content research. Private profiles,
+                TokProfile is designed for public content research. Private profiles,
                 restricted content, and access controls remain respected.
               </p>
               <div className="mt-6 space-y-3 border-t border-white/10 pt-5 text-xs text-white/55">
