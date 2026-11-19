@@ -4,7 +4,7 @@ export function BrandMark({ light = false }: { light?: boolean }) {
   return (
     <Link
       href="/"
-      aria-label="TokLens home"
+      aria-label="TokProfile home"
       className={`inline-flex items-center gap-2.5 font-display text-xl font-extrabold tracking-[-0.04em] ${
         light ? "text-white" : "text-ink"
       }`}
@@ -25,7 +25,7 @@ export function BrandMark({ light = false }: { light?: boolean }) {
           }`}
         />
       </span>
-      TokLens
+      TokProfile
     </Link>
   );
 }

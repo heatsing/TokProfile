@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { BrandMark } from "@/components/brand-mark";
+import { Download, Eye, Music2, Smartphone, UserRound } from "lucide-react";
 
 const footerLinks = [
   {
@@ -39,7 +40,95 @@ const footerLinks = [
   },
 ] as const;
 
-export function SiteFooter() {
+const utilityTools = [
+  { icon: Smartphone, label: "Download Stories" },
+  { icon: Music2, label: "Download MP3" },
+  { icon: Eye, label: "Story Viewer", href: "/viewer?mode=story" },
+  { icon: UserRound, label: "Profile Viewer", href: "/tiktok-profile-viewer" },
+] as const;
+
+export function SiteFooter({ variant = "default" }: { variant?: "default" | "utility" }) {
+  if (variant === "utility") {
+    return (
+      <footer className="border-t border-[#dbe6e3] bg-white text-[#294442]">
+        <div className="container flex flex-col items-center py-12 text-center sm:py-16">
+          <nav
+            aria-label="More TikTok tools"
+            className="flex max-w-5xl flex-wrap items-center justify-center gap-3"
+          >
+            {utilityTools.map((tool) => {
+              const Icon = tool.icon;
+              const content = (
+                <>
+                  <Icon className="size-5 text-[#087568]" aria-hidden="true" />
+                  {tool.label}
+                </>
+              );
+
+              return "href" in tool ? (
+                <Link
+                  key={tool.label}
+                  href={tool.href}
+                  className="inline-flex min-h-12 items-center gap-3 rounded-full bg-[#eff5f3] px-5 text-sm font-extrabold transition-colors hover:bg-[#e2efeb] hover:text-[#087568] sm:text-base"
+                >
+                  {content}
+                </Link>
+              ) : (
+                <span
+                  key={tool.label}
+                  aria-disabled="true"
+                  title="Coming soon"
+                  className="inline-flex min-h-12 cursor-default items-center gap-3 rounded-full bg-[#eff5f3] px-5 text-sm font-extrabold text-[#294442] sm:text-base"
+                >
+                  {content}
+                </span>
+              );
+            })}
+          </nav>
+
+          <Link
+            href="/tiktok-video-downloader"
+            aria-current="page"
+            className="mt-8 inline-flex items-center gap-3 font-display text-xl font-extrabold tracking-[-0.02em] sm:text-2xl"
+          >
+            <span className="grid size-11 place-items-center rounded-full bg-[#087568] text-white">
+              <Download className="size-5" aria-hidden="true" />
+            </span>
+            TikTok Video Downloader
+          </Link>
+
+          <nav
+            aria-label="Footer"
+            className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm text-[#49605d] sm:text-base"
+          >
+            <Link className="hover:text-[#087568]" href="#download-help">
+              Help
+            </Link>
+            <Link className="hover:text-[#087568]" href="mailto:hello@tokprofile.com">
+              Contact
+            </Link>
+            <Link className="hover:text-[#087568]" href="#site-copyright">
+              Copyright
+            </Link>
+            <Link className="hover:text-[#087568]" href="/privacy">
+              Privacy Policy
+            </Link>
+            <span aria-disabled="true" title="Coming soon">
+              Terms of Service
+            </span>
+          </nav>
+
+          <p className="mt-8 text-sm text-[#576d69] sm:text-base">
+            TokProfile is independent of TikTok and ByteDance.
+          </p>
+          <p id="site-copyright" className="mt-3 text-sm text-[#576d69] sm:text-base">
+            © {new Date().getFullYear()} TokProfile. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className="bg-ink text-white">
       <div className="container py-14 sm:py-20">
@@ -74,7 +163,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="flex flex-col gap-4 pt-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} TokLens. Built for public data research.</p>
+          <p>© {new Date().getFullYear()} TokProfile. Built for public data research.</p>
           <div className="flex gap-5">
             <Link href="/privacy">Privacy</Link>
             <Link href="/#how-it-works">Public data</Link>

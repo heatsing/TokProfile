@@ -11,7 +11,7 @@
   "h1": "TikTok Video Downloader",
   "breadcrumb": "TikTok Video Downloader",
   "badge": "Rights-aware by design",
-  "intro": "Validate a public TikTok video URL, preview its identity and review safe download options. Only save content you own or have permission to use.",
+  "intro": "Paste a public TikTok video link to validate it and review safe download availability. Only save content you own or have permission to use.",
   "useCases": [
     {
       "title": "Save your own published media",
@@ -63,15 +63,15 @@
       "answer": "No. You should only save content you own or have explicit permission to use. Availability can also be limited by privacy, removal, regional or platform restrictions."
     },
     {
-      "question": "Does TokLens keep downloaded videos?",
+      "question": "Does TokProfile keep downloaded videos?",
       "answer": "No. Permanent user-media storage is prohibited. Validated media can only use temporary processing storage, expires within 15 minutes and is removed after delivery."
     },
     {
       "question": "Why are download options currently unavailable?",
-      "answer": "TokLens enables downloads only after a verified media source and the returned bytes pass every security check. The current preview validates the video URL without scraping or inventing a media file."
+      "answer": "TokProfile enables downloads only after a verified media source and the returned bytes pass every security check. The current preview validates the video URL without scraping or inventing a media file."
     },
     {
-      "question": "How does TokLens protect the download service?",
+      "question": "How does TokProfile protect the download service?",
       "answer": "The service uses a TikTok domain whitelist, HTTPS-only URLs, request limits, small JSON request bodies, MP4 file signatures, size limits, random temporary filenames and cleanup controls."
     }
   ],
@@ -87,6 +87,10 @@
     {
       "label": "TikTok Privacy Guides",
       "href": "/blog"
+    },
+    {
+      "label": "TikTok Engagement Calculator",
+      "href": "/tiktok-engagement-rate-calculator"
     }
   ],
   "keywords": [
@@ -96,9 +100,60 @@
     "temporary media download"
   ],
   "ui": {
+    "howToSteps": [
+      {
+        "title": "1. Copy the video link",
+        "description": "Open the public video in TikTok, choose Share, then select Copy link.",
+        "cues": ["Share", "Copy link"]
+      },
+      {
+        "title": "2. Paste and confirm",
+        "description": "Paste the link above and confirm that you own the video or have permission to save it.",
+        "cues": ["Paste link", "Confirm rights"]
+      },
+      {
+        "title": "3. Review availability",
+        "description": "TokProfile validates the URL and shows an eligible option only when every media check passes.",
+        "cues": ["Check video", "Review result"]
+      }
+    ],
+    "downloadLocations": [
+      {
+        "title": "iPhone and iPad",
+        "description": "If a file is available, open Files, tap Browse, then check Downloads or your selected browser download location."
+      },
+      {
+        "title": "Android",
+        "description": "Open your browser download list or look in the Downloads folder in the Files app."
+      },
+      {
+        "title": "Windows and Mac",
+        "description": "Check your browser download history or the Downloads folder selected in your browser settings."
+      }
+    ],
+    "helpItems": [
+      {
+        "title": "Use a link to one public video",
+        "description": "Copy the original video URL again if you pasted a profile, search result, short link or unrelated page."
+      },
+      {
+        "title": "Check the available file details",
+        "description": "Format and quality depend on a verified source file. TokProfile does not invent unavailable versions."
+      },
+      {
+        "title": "Respect access and ownership limits",
+        "description": "Private, removed or restricted media is unavailable, and technical availability never replaces permission."
+      }
+    ],
+    "relatedToolDescriptions": {
+      "/tiktok-profile-viewer": "Look up a supported public TikTok profile.",
+      "/viewer?mode=video": "Open the viewer for a supported public video.",
+      "/blog": "Read practical privacy and public-content guides.",
+      "/tiktok-engagement-rate-calculator": "Estimate engagement with a visible formula."
+    },
     "safetyEyebrow": "Safety notice",
     "safetyTitle": "Temporary processing, never a media library",
-    "safetyDescription": "TokLens does not permanently store user media, bypass private content controls or fetch arbitrary URLs. Download delivery remains disabled until a verified media source passes every file check.",
+    "safetyDescription": "TokProfile does not permanently store user media, bypass private content controls or fetch arbitrary URLs. Download delivery remains disabled until a verified media source passes every file check.",
     "safetyControls": [
       {
         "icon": "shield",

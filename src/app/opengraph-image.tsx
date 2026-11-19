@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "TokLens public TikTok viewer and creator analytics";
+export const alt = "TokProfile public TikTok viewer and creator analytics";
 export const size = {
   width: 1200,
   height: 630,
@@ -74,7 +74,7 @@ export default function OpenGraphImage() {
               }}
             />
           </div>
-          TokLens
+          TokProfile
         </div>
         <div
           style={{

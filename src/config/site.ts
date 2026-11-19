@@ -1,7 +1,7 @@
 import type { NavigationItem } from "@/types/navigation";
 
 export const siteConfig = {
-  name: "TokLens",
+  name: "TokProfile",
   description:
     "Public TikTok discovery and creator intelligence for viewers, creators, and marketing teams.",
   navigation: [

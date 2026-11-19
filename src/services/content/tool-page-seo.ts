@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { siteConfig } from "@/config/site";
 import type { ToolPageData } from "@/types/tool-page";
 
 export function buildToolPageMetadata(
@@ -15,21 +16,21 @@ export function buildToolPageMetadata(
       type: "website",
       locale: "en_US",
       url: page.route,
-      siteName: "TokLens",
-      title: `${page.title} | TokLens`,
+      siteName: siteConfig.name,
+      title: `${page.title} | ${siteConfig.name}`,
       description: page.description,
       images: [
         {
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: `TokLens ${page.h1}`,
+          alt: `${siteConfig.name} ${page.h1}`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${page.title} | TokLens`,
+      title: `${page.title} | ${siteConfig.name}`,
       description: page.description,
       images: ["/opengraph-image"],
     },

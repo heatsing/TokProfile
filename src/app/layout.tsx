@@ -7,8 +7,8 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   metadataBase: new URL(publicEnv.siteUrl),
   title: {
-    default: "TokLens — TikTok Viewer & Creator Analytics",
-    template: "%s | TokLens",
+    default: "TokProfile — TikTok Viewer & Creator Analytics",
+    template: "%s | TokProfile",
   },
   description:
     "Explore public TikTok profiles, understand creator growth, and research content performance with privacy-first creator intelligence.",
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/",
-    siteName: "TokLens",
-    title: "TokLens — See what is moving on TikTok",
+    siteName: "TokProfile",
+    title: "TokProfile — See what is moving on TikTok",
     description:
       "Public TikTok discovery and creator intelligence, in one focused workspace.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TokLens — TikTok Viewer & Creator Analytics",
+    title: "TokProfile — TikTok Viewer & Creator Analytics",
     description: "Explore public content, compare creators, and spot growth signals.",
   },
   robots: {
