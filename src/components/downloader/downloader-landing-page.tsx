@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import { DownloaderWorkspace } from "@/components/downloader/downloader-workspace";
+import { HomepageTools } from "@/components/downloader/homepage-tools";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { publicEnv } from "@/config/env";
@@ -73,6 +74,8 @@ export async function DownloaderLandingPage({
           </div>
         </div>
       </section>
+
+      <HomepageTools />
 
       <div className="container max-w-[1120px] py-12 sm:py-16">
         <section aria-labelledby="how-to-download-title">
@@ -162,37 +165,6 @@ export async function DownloaderLandingPage({
             </p>
           </div>
         </aside>
-
-        <div className="my-12 border-t border-[#dde5e3] sm:my-14" />
-
-        <section aria-labelledby="more-tools-title">
-          <h2
-            id="more-tools-title"
-            className="font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl"
-          >
-            More TokProfile Resources
-          </h2>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {page.relatedTools.map((tool) => (
-              <Link
-                key={tool.href}
-                href={tool.href}
-                className="group min-h-28 rounded-xl border border-[#dbe3e1] p-4 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-[#087568]/40"
-              >
-                <span className="flex items-center justify-between gap-3 text-[13px] font-extrabold text-[#087568]">
-                  {tool.label}
-                  <ArrowRight
-                    className="size-4 transition-transform group-hover:translate-x-0.5"
-                    aria-hidden="true"
-                  />
-                </span>
-                <p className="mt-3 text-[11px] leading-5 text-[#63716f]">
-                  {ui.relatedToolDescriptions[tool.href]}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
 
         <div className="my-12 border-t border-[#dde5e3] sm:my-14" />
 

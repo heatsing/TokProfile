@@ -24,7 +24,7 @@ describe("support-page SEO and navigation policy", () => {
 
   it("does not expose unavailable media or viewer tools in public navigation", () => {
     const links = [
-      ...primaryNavigation.map((item) => item.href),
+      ...primaryNavigation.flatMap((item) => ("href" in item ? [item.href] : [])),
       ...footerNavigation.flatMap((group) => group.items.map((item) => item.href)),
     ];
 
