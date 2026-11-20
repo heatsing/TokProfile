@@ -61,7 +61,7 @@ const popularTools = [
     title: "TikTok Profile Viewer",
     description:
       "Validate a username or profile URL. Live profile retrieval is not connected yet.",
-    href: "/tiktok-profile-viewer",
+    href: "/profile-viewer",
     action: "View a profile",
     status: "Validation only",
   },

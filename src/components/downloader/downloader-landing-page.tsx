@@ -1,6 +1,14 @@
 import Link from "next/link";
-import { CheckCircle2, ClipboardPaste, Copy, Link2, SearchCheck } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ClipboardPaste,
+  Copy,
+  Link2,
+  SearchCheck,
+} from "lucide-react";
 
+import { HomepageTools } from "@/components/downloader/homepage-tools";
 import { DownloaderWorkspace } from "@/components/downloader/downloader-workspace";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -46,7 +54,10 @@ export async function DownloaderLandingPage({
     <main className="min-h-screen bg-white text-[#24211f]">
       <SiteHeader variant="utility" />
 
-      <section className="bg-[#e66f13] py-12 text-white sm:py-16">
+      <section
+        id="download"
+        className="scroll-mt-24 bg-[#e66f13] py-12 text-white sm:py-16"
+      >
         <div className="mx-auto w-[calc(100%-2rem)] max-w-[900px] text-center sm:w-[calc(100%-3rem)]">
           <h1 className="text-[clamp(1.9rem,4vw,2.75rem)] font-bold leading-[1.24] tracking-[-0.025em]">
             {page.h1}
@@ -55,8 +66,25 @@ export async function DownloaderLandingPage({
             {page.intro}
           </p>
 
-          <div className="mx-auto mt-7 w-full max-w-[820px]">
+          <div className="mx-auto mt-7 grid w-full max-w-[920px] gap-3 text-left lg:grid-cols-[minmax(0,1fr)_230px]">
             <DownloaderWorkspace />
+            <Link
+              href="/download-tiktok-stories"
+              className="flex min-h-[96px] items-center justify-between gap-4 rounded-[5px] border border-white/35 bg-white/10 px-5 text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white lg:min-h-full lg:flex-col lg:items-start lg:justify-center"
+            >
+              <span>
+                <span className="block text-[10px] font-extrabold uppercase tracking-[0.14em] text-white/75">
+                  Story tool
+                </span>
+                <span className="mt-1 block text-sm font-extrabold">
+                  Download TikTok Story
+                </span>
+                <span className="mt-1 block text-[11px] leading-4 text-white/80">
+                  Open the dedicated Story workflow.
+                </span>
+              </span>
+              <ArrowRight className="size-5 shrink-0" aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
@@ -76,6 +104,8 @@ export async function DownloaderLandingPage({
           </a>
         ))}
       </nav>
+
+      <HomepageTools />
 
       <div className="mx-auto w-[calc(100%-2rem)] max-w-[900px] sm:w-[calc(100%-3rem)]">
         <section className="mx-auto mt-10 max-w-[70ch] text-center sm:mt-12">

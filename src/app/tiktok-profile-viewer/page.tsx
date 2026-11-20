@@ -26,7 +26,7 @@ import { tiktokToolEngine } from "@/services/tiktok";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await requireToolPage("tiktok-profile-viewer");
-  return buildToolPageMetadata(page, { noindex: true });
+  return buildToolPageMetadata(page, { noindex: true, route: "/profile-viewer" });
 }
 
 const workflowIcons = { eye: Eye, link: Link2, search: Search } as const;
@@ -52,7 +52,9 @@ export default async function TikTokProfileViewerPage({
     workflowEyebrow: string;
     workflowTitle: string;
   };
-  const structuredData = buildToolPageStructuredData(page, publicEnv.siteUrl);
+  const structuredData = buildToolPageStructuredData(page, publicEnv.siteUrl, {
+    route: "/profile-viewer",
+  });
   const input = q.trim();
   const result = input
     ? await tiktokToolEngine.run({ input, tool: "profile" })
@@ -95,7 +97,7 @@ export default async function TikTokProfileViewerPage({
 
           <div className="mt-8 max-w-3xl">
             <ViewerSearch
-              action="/tiktok-profile-viewer"
+              action="/profile-viewer"
               buttonLabel={ui.searchButtonLabel}
               defaultValue={input}
               helperText={ui.searchHelperText}

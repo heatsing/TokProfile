@@ -1,11 +1,9 @@
 import Link from "next/link";
 import {
   AlertTriangle,
-  BarChart3,
   CheckCircle2,
   Clapperboard,
   Heart,
-  Images,
   LockKeyhole,
   Search,
   UserPlus,
@@ -14,6 +12,7 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 import {
+  AVAILABLE_PROFILE_VIEW_TABS,
   createProfileTabHref,
   PROFILE_VIEW_TABS,
   type ProfileViewTab,
@@ -23,9 +22,11 @@ import type { TikTokProfile } from "@/types/tiktok";
 import { formatCompactNumber, formatExactNumber } from "@/utils/format-number";
 
 const tabLabels: Record<ProfileViewTab, string> = {
-  analytics: "Analytics",
+  followers: "Followers",
+  following: "Following",
+  liked: "Liked Videos",
   overview: "Overview",
-  videos: "Videos",
+  reposts: "Reposts",
 };
 
 const metricDefinitions = [
@@ -60,21 +61,38 @@ function ProfileTabs({ activeTab, input }: { activeTab: ProfileViewTab; input: s
       aria-label="Profile result sections"
       className="mt-8 flex gap-1 overflow-x-auto border-b border-ink/10"
     >
-      {PROFILE_VIEW_TABS.map((tab) => (
-        <Link
-          key={tab}
-          aria-current={activeTab === tab ? "page" : undefined}
-          href={createProfileTabHref(input, tab)}
-          className={`relative min-h-12 shrink-0 px-4 py-3 text-sm font-bold transition-colors ${
-            activeTab === tab ? "text-ink" : "text-ink/45 hover:text-ink"
-          }`}
-        >
-          {tabLabels[tab]}
-          {activeTab === tab ? (
-            <span className="absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-pine" />
-          ) : null}
-        </Link>
-      ))}
+      {PROFILE_VIEW_TABS.map((tab) => {
+        const available = AVAILABLE_PROFILE_VIEW_TABS.includes(tab);
+        const className = `relative min-h-12 shrink-0 px-4 py-3 text-sm font-bold ${
+          activeTab === tab ? "text-ink" : "text-ink/40"
+        }`;
+
+        return available ? (
+          <Link
+            key={tab}
+            aria-current={activeTab === tab ? "page" : undefined}
+            href={createProfileTabHref(input, tab)}
+            className={`${className} transition-colors hover:text-ink`}
+          >
+            {tabLabels[tab]}
+            {activeTab === tab ? (
+              <span className="absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-pine" />
+            ) : null}
+          </Link>
+        ) : (
+          <span
+            key={tab}
+            aria-disabled="true"
+            title="Available after public data is connected"
+            className={`${className} cursor-not-allowed`}
+          >
+            {tabLabels[tab]}
+            <span className="ml-1.5 text-[9px] font-extrabold uppercase tracking-wide text-[#a13c0d]">
+              Soon
+            </span>
+          </span>
+        );
+      })}
     </nav>
   );
 }
@@ -105,40 +123,6 @@ function OverviewPanel({ profile }: { profile: TikTokProfile }) {
       <p className="mt-4 text-xs leading-5 text-ink/45">
         A dash means the metric is not available from the current public source. It does
         not mean zero.
-      </p>
-    </div>
-  );
-}
-
-function VideosPanel({ username }: { username: string }) {
-  return (
-    <div className="py-10 text-center">
-      <span className="mx-auto grid size-14 place-items-center rounded-2xl bg-sand text-pine">
-        <Images className="size-6" aria-hidden="true" />
-      </span>
-      <h3 className="mt-5 font-display text-xl font-extrabold">
-        No public videos loaded yet
-      </h3>
-      <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-ink/55">
-        Available recent videos for @{username} will appear here when the public-data
-        connector returns them.
-      </p>
-    </div>
-  );
-}
-
-function AnalyticsPanel({ username }: { username: string }) {
-  return (
-    <div className="py-10 text-center">
-      <span className="mx-auto grid size-14 place-items-center rounded-2xl bg-sand text-pine">
-        <BarChart3 className="size-6" aria-hidden="true" />
-      </span>
-      <h3 className="mt-5 font-display text-xl font-extrabold">
-        Analytics need observable history
-      </h3>
-      <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-ink/55">
-        Growth, posting cadence and engagement trends for @{username} will appear after
-        enough public snapshots are available.
       </p>
     </div>
   );
@@ -192,8 +176,6 @@ function ProfileCard({
       <ProfileTabs activeTab={activeTab} input={input} />
 
       {activeTab === "overview" ? <OverviewPanel profile={profile} /> : null}
-      {activeTab === "videos" ? <VideosPanel username={profile.username} /> : null}
-      {activeTab === "analytics" ? <AnalyticsPanel username={profile.username} /> : null}
     </section>
   );
 }
@@ -226,50 +208,56 @@ export function ProfileViewerResult({
 
   if (state.status === "error") {
     return (
-      <section
-        aria-labelledby="profile-error-title"
-        className="rounded-[28px] border border-amber-500/25 bg-amber-50 p-6 sm:p-8"
-      >
-        <AlertTriangle className="size-7 text-amber-700" aria-hidden="true" />
-        <p className="mt-5 text-xs font-bold uppercase tracking-wider text-amber-800">
-          {state.error.code.replaceAll("_", " ")}
-        </p>
-        <h2
-          id="profile-error-title"
-          className="mt-2 font-display text-2xl font-extrabold"
+      <div>
+        <ProfileTabs activeTab={activeTab} input={input} />
+        <section
+          aria-labelledby="profile-error-title"
+          className="mt-6 rounded-[28px] border border-amber-500/25 bg-amber-50 p-6 sm:p-8"
         >
-          We could not open this profile.
-        </h2>
-        <p className="mt-3 max-w-xl text-sm leading-6 text-ink/60">
-          {state.error.message}
-        </p>
-      </section>
+          <AlertTriangle className="size-7 text-amber-700" aria-hidden="true" />
+          <p className="mt-5 text-xs font-bold uppercase tracking-wider text-amber-800">
+            {state.error.code.replaceAll("_", " ")}
+          </p>
+          <h2
+            id="profile-error-title"
+            className="mt-2 font-display text-2xl font-extrabold"
+          >
+            We could not open this profile.
+          </h2>
+          <p className="mt-3 max-w-xl text-sm leading-6 text-ink/60">
+            {state.error.message}
+          </p>
+        </section>
+      </div>
     );
   }
 
   if (state.status === "private") {
     return (
-      <section
-        aria-labelledby="private-profile-title"
-        className="rounded-[28px] bg-ink p-6 text-white sm:p-8"
-      >
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-          <ProfileAvatar profile={state.profile} />
-          <div>
-            <LockKeyhole className="size-6 text-acid" aria-hidden="true" />
-            <h2
-              id="private-profile-title"
-              className="mt-4 font-display text-2xl font-extrabold"
-            >
-              @{state.profile.username} is private
-            </h2>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">
-              TokProfile does not bypass private account settings. Profile metrics, videos
-              and analytics remain unavailable.
-            </p>
+      <div>
+        <ProfileTabs activeTab={activeTab} input={input} />
+        <section
+          aria-labelledby="private-profile-title"
+          className="mt-6 rounded-[28px] bg-ink p-6 text-white sm:p-8"
+        >
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+            <ProfileAvatar profile={state.profile} />
+            <div>
+              <LockKeyhole className="size-6 text-acid" aria-hidden="true" />
+              <h2
+                id="private-profile-title"
+                className="mt-4 font-display text-2xl font-extrabold"
+              >
+                @{state.profile.username} is private
+              </h2>
+              <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">
+                TokProfile does not bypass private account settings. Profile metrics,
+                videos and analytics remain unavailable.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     );
   }
 

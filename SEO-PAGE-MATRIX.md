@@ -27,3 +27,16 @@ The application route and content registries are the implementation source of tr
   were not created because the repository has no verified provider for those user
   outcomes. They are absent from navigation and sitemap.
 - No existing URL was deleted or redirected as part of this decision.
+
+## Owner-approved navigation expansion — 2026-11-20
+
+- The shared desktop and mobile navigation now exposes `/download-tiktok-stories`,
+  `/tiktok-to-mp3`, `/story-viewer` and `/profile-viewer` at the owner's explicit
+  request. This supersedes the earlier navigation restriction above.
+- Until their verified providers pass end-to-end testing, the Story downloader,
+  MP3 and Story Viewer routes are truthful status pages with `noindex,follow` and
+  remain outside the sitemap. They do not simulate a successful result.
+- `/profile-viewer` is the preferred public route for the existing Profile Viewer;
+  its current function-readiness `noindex` decision remains unchanged.
+- Photo Downloader remains absent from navigation, footer and route inventory until
+  its real image-delivery result is available.

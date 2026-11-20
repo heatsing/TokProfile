@@ -4,7 +4,15 @@ import type {
   TikTokToolResult,
 } from "@/types/tiktok";
 
-export const PROFILE_VIEW_TABS = ["overview", "videos", "analytics"] as const;
+export const PROFILE_VIEW_TABS = [
+  "overview",
+  "reposts",
+  "liked",
+  "following",
+  "followers",
+] as const;
+
+export const AVAILABLE_PROFILE_VIEW_TABS: readonly ProfileViewTab[] = ["overview"];
 
 export type ProfileViewTab = (typeof PROFILE_VIEW_TABS)[number];
 
@@ -15,7 +23,7 @@ export type ProfileViewerState =
   | { profile: TikTokProfile; status: "success" };
 
 export function resolveProfileViewTab(value: string | undefined): ProfileViewTab {
-  return PROFILE_VIEW_TABS.includes(value as ProfileViewTab)
+  return AVAILABLE_PROFILE_VIEW_TABS.includes(value as ProfileViewTab)
     ? (value as ProfileViewTab)
     : "overview";
 }
@@ -68,5 +76,5 @@ export function createProfileTabHref(input: string, tab: ProfileViewTab): string
     params.set("tab", tab);
   }
 
-  return `/tiktok-profile-viewer?${params.toString()}`;
+  return `/profile-viewer?${params.toString()}`;
 }

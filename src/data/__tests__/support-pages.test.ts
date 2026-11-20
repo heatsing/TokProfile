@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { footerNavigation, primaryNavigation } from "@/config/public-navigation";
+import {
+  footerNavigation,
+  groupedNavigation,
+  homepageTools,
+  primaryNavigation,
+} from "@/config/public-navigation";
 import { supportPages } from "@/data/support-pages";
 
 describe("support-page SEO and navigation policy", () => {
@@ -22,18 +27,34 @@ describe("support-page SEO and navigation policy", () => {
     ).toEqual(["/help", "/privacy"]);
   });
 
-  it("does not expose unavailable media or viewer tools in public navigation", () => {
+  it("exposes the approved navigation routes without publishing Photo Downloader early", () => {
     const links = [
-      ...primaryNavigation.flatMap((item) => ("href" in item ? [item.href] : [])),
+      ...primaryNavigation.map((item) => item.href),
       ...footerNavigation.flatMap((group) => group.items.map((item) => item.href)),
     ];
 
-    expect(links).not.toContain("/tiktok-to-mp3");
-    expect(links).not.toContain("/download-tiktok-stories");
-    expect(links).not.toContain("/story-viewer");
-    expect(links).not.toContain("/profile-viewer");
+    expect(links).toEqual(
+      expect.arrayContaining([
+        "/#download",
+        "/download-tiktok-stories",
+        "/tiktok-to-mp3",
+        "/story-viewer",
+        "/profile-viewer",
+      ]),
+    );
+    expect(links).not.toContain("/download-tiktok-photos");
     expect(links).not.toContain("/viewer");
     expect(links).not.toContain("/tiktok-profile-viewer");
     expect(links).not.toContain("/tiktok-analytics");
+  });
+
+  it("keeps viewer links in the Viewers menu and off the homepage tool area", () => {
+    const viewers = groupedNavigation.find((group) => group.label === "Viewers");
+
+    expect(viewers?.items).toEqual([
+      { href: "/story-viewer", label: "Story Viewer" },
+      { href: "/profile-viewer", label: "Profile Viewer" },
+    ]);
+    expect(homepageTools.map((tool) => tool.href)).toEqual(["/tiktok-to-mp3"]);
   });
 });

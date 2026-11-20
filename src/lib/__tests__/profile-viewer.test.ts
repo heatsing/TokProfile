@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  PROFILE_VIEW_TABS,
   createProfileTabHref,
   createProfileViewerState,
   resolveProfileViewTab,
@@ -96,17 +97,34 @@ describe("profile viewer state", () => {
 });
 
 describe("profile viewer tabs", () => {
-  it.each(["overview", "videos", "analytics"] as const)("accepts the %s tab", (tab) => {
-    expect(resolveProfileViewTab(tab)).toBe(tab);
+  it("keeps the approved result-tab order", () => {
+    expect(PROFILE_VIEW_TABS).toEqual([
+      "overview",
+      "reposts",
+      "liked",
+      "following",
+      "followers",
+    ]);
   });
+
+  it("keeps Overview available", () => {
+    expect(resolveProfileViewTab("overview")).toBe("overview");
+  });
+
+  it.each(["reposts", "liked", "following", "followers"] as const)(
+    "keeps the pending %s tab closed",
+    (tab) => {
+      expect(resolveProfileViewTab(tab)).toBe("overview");
+    },
+  );
 
   it("falls back to overview for unknown tabs", () => {
     expect(resolveProfileViewTab("growth")).toBe("overview");
   });
 
   it("builds encoded tab URLs", () => {
-    expect(createProfileTabHref("@atlas.moves", "analytics")).toBe(
-      "/tiktok-profile-viewer?q=%40atlas.moves&tab=analytics",
+    expect(createProfileTabHref("@atlas.moves", "followers")).toBe(
+      "/profile-viewer?q=%40atlas.moves&tab=followers",
     );
   });
 });

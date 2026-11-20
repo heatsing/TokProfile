@@ -30,15 +30,15 @@ export function HomepageTools() {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#087568]">
-              TokProfile tools
+              TikTok downloaders
             </p>
             <h2 className="mt-2 font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl">
-              Choose what you want to do
+              More download tools
             </h2>
           </div>
           <p className="max-w-lg text-xs leading-5 text-[#5d706c]">
-            Available tools open now. Planned tools stay clearly marked until their real
-            result has passed end-to-end testing.
+            TikTok to MP3 opens its current status page. Photo Downloader will join this
+            section after real image delivery passes end-to-end testing.
           </p>
         </div>
 
@@ -72,7 +72,7 @@ export function HomepageTools() {
               </>
             );
 
-            return "href" in tool ? (
+            return (
               <Link
                 key={tool.label}
                 href={tool.href}
@@ -80,14 +80,6 @@ export function HomepageTools() {
               >
                 {content}
               </Link>
-            ) : (
-              <div
-                key={tool.label}
-                aria-disabled="true"
-                className="flex min-h-28 items-start gap-4 rounded-xl border border-[#c7d6dd] bg-white/45 p-4"
-              >
-                {content}
-              </div>
             );
           })}
         </div>
