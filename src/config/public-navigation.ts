@@ -3,8 +3,10 @@ export interface PublicNavigationLink {
   label: string;
 }
 
+export type PublicNavigationItem = PublicNavigationLink | { href: null; label: string };
+
 export interface PublicNavigationGroup {
-  items: readonly PublicNavigationLink[];
+  items: readonly PublicNavigationItem[];
   label: string;
 }
 
@@ -13,10 +15,15 @@ export const directDownloadNavigation = [
   { href: "/download-tiktok-stories", label: "Download TikTok Story" },
 ] as const satisfies readonly PublicNavigationLink[];
 
-export const groupedNavigation = [
+export const groupedNavigation: readonly PublicNavigationGroup[] = [
   {
     label: "TikTok Downloaders",
-    items: [{ href: "/tiktok-to-mp3", label: "TikTok to MP3" }],
+    items: [
+      { href: null, label: "Downloader TikTok Photo" },
+      { href: "/tiktok-to-mp3", label: "Download TikTok Audio" },
+      { href: null, label: "Downloader TikTok Slide" },
+      { href: null, label: "Downloader TikTok Notes" },
+    ],
   },
   {
     label: "Viewers",
@@ -25,12 +32,13 @@ export const groupedNavigation = [
       { href: "/profile-viewer", label: "Profile Viewer" },
     ],
   },
-] as const satisfies readonly PublicNavigationGroup[];
+];
 
 export const primaryNavigation: readonly PublicNavigationLink[] = [
   ...directDownloadNavigation,
-  ...groupedNavigation[0].items,
-  ...groupedNavigation[1].items,
+  ...groupedNavigation.flatMap(({ items }) =>
+    items.filter((item): item is PublicNavigationLink => item.href !== null),
+  ),
 ];
 
 export const footerNavigation = [

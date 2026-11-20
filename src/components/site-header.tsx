@@ -6,12 +6,46 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 
-import { directDownloadNavigation, groupedNavigation } from "@/config/public-navigation";
+import {
+  directDownloadNavigation,
+  groupedNavigation,
+  type PublicNavigationItem,
+} from "@/config/public-navigation";
 
 function isActivePath(pathname: string, href: string) {
   const route = href.split("#")[0] || "/";
   if (route === "/") return pathname === "/";
   return pathname === route || pathname.startsWith(`${route}/`);
+}
+
+function NavigationGroupItem({
+  item,
+  onNavigate,
+}: {
+  item: PublicNavigationItem;
+  onNavigate?: () => void;
+}) {
+  const height = onNavigate ? "min-h-11" : "min-h-10";
+  const row = `flex ${height} items-center rounded px-3 text-sm font-semibold`;
+
+  if (item.href === null) {
+    return (
+      <span aria-disabled="true" className={`${row} cursor-default text-[#756d68]`}>
+        {item.label}
+        <span className="sr-only"> (not available yet)</span>
+      </span>
+    );
+  }
+
+  return (
+    <Link
+      href={item.href}
+      onClick={onNavigate}
+      className={`${row} text-[#302923] hover:bg-[#fff4ed] hover:text-[#a13c0d]`}
+    >
+      {item.label}
+    </Link>
+  );
 }
 
 export function SiteHeader({
@@ -78,7 +112,9 @@ export function SiteHeader({
           })}
 
           {groupedNavigation.map((group) => {
-            const active = group.items.some((item) => isActivePath(pathname, item.href));
+            const active = group.items.some(
+              (item) => item.href !== null && isActivePath(pathname, item.href),
+            );
             return (
               <details key={group.label} className="group relative">
                 <summary
@@ -94,13 +130,7 @@ export function SiteHeader({
                 </summary>
                 <div className="absolute right-0 top-[calc(100%+14px)] min-w-52 rounded-md border border-[#e8e2de] bg-white p-2 shadow-[0_16px_36px_rgba(70,42,24,0.14)]">
                   {group.items.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="flex min-h-10 items-center rounded px-3 text-sm font-semibold text-[#302923] hover:bg-[#fff4ed] hover:text-[#a13c0d]"
-                    >
-                      {item.label}
-                    </Link>
+                    <NavigationGroupItem key={item.label} item={item} />
                   ))}
                 </div>
               </details>
@@ -150,14 +180,11 @@ export function SiteHeader({
                 {group.label}
               </p>
               {group.items.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="flex min-h-11 items-center rounded px-3 text-sm font-semibold text-[#302923] hover:bg-[#fff4ed] hover:text-[#a13c0d]"
-                >
-                  {item.label}
-                </Link>
+                <NavigationGroupItem
+                  key={item.label}
+                  item={item}
+                  onNavigate={() => setOpen(false)}
+                />
               ))}
             </div>
           ))}

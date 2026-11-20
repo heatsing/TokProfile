@@ -38,5 +38,6 @@ The application route and content registries are the implementation source of tr
   remain outside the sitemap. They do not simulate a successful result.
 - `/profile-viewer` is the preferred public route for the existing Profile Viewer;
   its current function-readiness `noindex` decision remains unchanged.
-- Photo Downloader remains absent from navigation, footer and route inventory until
-  its real image-delivery result is available.
+- At the owner's request, Photo, Slide and Notes appear in the shared Downloaders
+  menu as disabled items until their tools are available. No URL or footer link was
+  added for them. The menu's Audio item uses the existing `/tiktok-to-mp3` URL.

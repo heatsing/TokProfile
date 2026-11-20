@@ -55,4 +55,17 @@ describe("support-page SEO and navigation policy", () => {
       { href: "/profile-viewer", label: "Profile Viewer" },
     ]);
   });
+
+  it("lists the requested downloaders before Viewers without linking unreleased tools", () => {
+    expect(groupedNavigation.map((group) => group.label)).toEqual([
+      "TikTok Downloaders",
+      "Viewers",
+    ]);
+    expect(groupedNavigation[0].items).toEqual([
+      { href: null, label: "Downloader TikTok Photo" },
+      { href: "/tiktok-to-mp3", label: "Download TikTok Audio" },
+      { href: null, label: "Downloader TikTok Slide" },
+      { href: null, label: "Downloader TikTok Notes" },
+    ]);
+  });
 });
