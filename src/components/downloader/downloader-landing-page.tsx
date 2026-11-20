@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-  CheckCircle2,
-  ClipboardPaste,
-  Copy,
-  Link2,
-  Play,
-  SearchCheck,
-} from "lucide-react";
+import { CheckCircle2, ClipboardPaste, Copy, Link2, SearchCheck } from "lucide-react";
 
 import { DownloaderWorkspace } from "@/components/downloader/downloader-workspace";
 import { SiteFooter } from "@/components/site-footer";
@@ -53,7 +46,7 @@ export async function DownloaderLandingPage({
     <main className="min-h-screen bg-white text-[#24211f]">
       <SiteHeader variant="utility" />
 
-      <section className="bg-[#bb4a12] py-7 text-white sm:py-8">
+      <section className="bg-[#e66f13] py-12 text-white sm:py-16">
         <div className="mx-auto w-[calc(100%-2rem)] max-w-[900px] text-center sm:w-[calc(100%-3rem)]">
           <h1 className="text-[clamp(1.9rem,4vw,2.75rem)] font-bold leading-[1.24] tracking-[-0.025em]">
             {page.h1}
@@ -62,46 +55,7 @@ export async function DownloaderLandingPage({
             {page.intro}
           </p>
 
-          <aside
-            aria-labelledby="link-help-title"
-            className="mx-auto mt-4 grid min-h-[138px] w-full max-w-[760px] grid-cols-[0.82fr_1.18fr] overflow-hidden rounded-md bg-white text-left text-[#24211f] sm:min-h-[164px]"
-          >
-            <div className="grid min-h-[138px] place-items-center bg-[#fff1e7] sm:min-h-[164px]">
-              <div className="w-[72%] max-w-[178px] -rotate-[5deg] rounded-[10px] border border-[#ead5c8] bg-white p-2 shadow-[0_6px_19px_rgba(136,57,20,0.13)] sm:p-2.5">
-                <div className="grid place-items-center rounded-[5px] bg-[#28221f] py-4 sm:py-5">
-                  <span className="grid size-9 place-items-center rounded-full border border-white/50">
-                    <Play
-                      className="ml-0.5 size-4 fill-white text-white"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </div>
-                <p className="mt-1.5 text-center text-[10px] font-bold text-[#8f330c] sm:text-xs">
-                  Share · Copy link
-                </p>
-              </div>
-            </div>
-            <div className="self-center px-3 py-3 sm:px-8 sm:py-4">
-              <h2
-                id="link-help-title"
-                className="text-[clamp(1rem,2.5vw,1.4rem)] font-bold leading-tight tracking-[-0.025em]"
-              >
-                Where do I get the video link?
-              </h2>
-              <p className="mt-1.5 text-[11px] leading-4 text-[#56514e] sm:text-sm sm:leading-5">
-                Open the video in TikTok. Tap <strong>Share</strong>, then{" "}
-                <strong>Copy link</strong>.
-              </p>
-              <a
-                href="#how"
-                className="mt-1 inline-block text-[11px] font-bold text-[#a13c0d] underline underline-offset-4 sm:text-[13px]"
-              >
-                See the steps
-              </a>
-            </div>
-          </aside>
-
-          <div className="mx-auto mt-2 w-full max-w-[760px]">
+          <div className="mx-auto mt-7 w-full max-w-[820px]">
             <DownloaderWorkspace />
           </div>
         </div>

@@ -90,13 +90,13 @@ export function DownloaderWorkspace() {
             <button
               type="button"
               onClick={handlePaste}
-              className="h-[38px] rounded-[3px] bg-[#f6e9e1] px-4 text-[13px] font-bold text-[#703617] transition-colors hover:bg-[#efd8cb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#214b70]"
+              className="h-[38px] rounded-[3px] bg-[#d652c8] px-4 text-[13px] font-bold text-white transition-colors hover:bg-[#bd42b1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Paste
             </button>
           </div>
           <button
-            className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-[3px] bg-[#26221f] px-5 text-[13px] font-bold text-white transition-colors hover:bg-[#463830] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#214b70] disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-[3px] bg-[#2563eb] px-6 text-[13px] font-bold text-white transition-colors hover:bg-[#1d4ed8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-60"
             disabled={state.status === "loading"}
             type="submit"
           >

@@ -2,10 +2,14 @@ export type PublicNavigationItem =
   { href: string; label: string; status: "live" } | { label: string; status: "planned" };
 
 export const primaryNavigation: readonly PublicNavigationItem[] = [
-  { label: "Download TikTok Stories", status: "planned" },
-  { label: "Download TikTok MP3", status: "planned" },
-  { label: "Story Viewer", status: "planned" },
-  { label: "Profile Viewer", status: "planned" },
+  { href: "/", label: "TikTok Video Checker", status: "live" },
+  {
+    href: "/tiktok-engagement-rate-calculator",
+    label: "Engagement Calculator",
+    status: "live",
+  },
+  { href: "/blog", label: "TikTok Guides", status: "live" },
+  { href: "/help", label: "Help", status: "live" },
 ];
 
 export const utilityFooterNavigation = [
