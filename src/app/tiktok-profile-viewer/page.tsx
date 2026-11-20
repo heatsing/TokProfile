@@ -14,12 +14,20 @@ import {
 import { requireToolPage } from "@/services/content/tool-pages";
 import { tiktokToolEngine } from "@/services/tiktok";
 
-export async function generateMetadata(): Promise<Metadata> {
+async function getProfileViewerPageData() {
   const page = await requireToolPage("tiktok-profile-viewer");
   return {
-    ...buildToolPageMetadata(page, { noindex: true, route: "/profile-viewer" }),
+    ...page,
     description: profileViewerContent.description,
+    faq: profileViewerContent.faq,
   };
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return buildToolPageMetadata(await getProfileViewerPageData(), {
+    noindex: true,
+    route: "/profile-viewer",
+  });
 }
 
 export default async function TikTokProfileViewerPage({
@@ -28,12 +36,10 @@ export default async function TikTokProfileViewerPage({
   searchParams: Promise<{ q?: string | string[]; tab?: string | string[] }>;
 }) {
   const { q, tab } = await searchParams;
-  const page = await requireToolPage("tiktok-profile-viewer");
-  const structuredData = buildToolPageStructuredData(
-    { ...page, intro: profileViewerContent.description, faq: profileViewerContent.faq },
-    publicEnv.siteUrl,
-    { route: "/profile-viewer" },
-  );
+  const page = await getProfileViewerPageData();
+  const structuredData = buildToolPageStructuredData(page, publicEnv.siteUrl, {
+    route: "/profile-viewer",
+  });
   const input = typeof q === "string" ? q.trim() : "";
   const result = input
     ? await tiktokToolEngine.run({ input, tool: "profile" })
