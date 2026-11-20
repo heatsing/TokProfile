@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 import {
   footerNavigation,
   groupedNavigation,
-  homepageTools,
   primaryNavigation,
 } from "@/config/public-navigation";
 import { supportPages } from "@/data/support-pages";
@@ -48,13 +47,12 @@ describe("support-page SEO and navigation policy", () => {
     expect(links).not.toContain("/tiktok-analytics");
   });
 
-  it("keeps viewer links in the Viewers menu and off the homepage tool area", () => {
+  it("keeps both viewer links in the Viewers menu", () => {
     const viewers = groupedNavigation.find((group) => group.label === "Viewers");
 
     expect(viewers?.items).toEqual([
       { href: "/story-viewer", label: "Story Viewer" },
       { href: "/profile-viewer", label: "Profile Viewer" },
     ]);
-    expect(homepageTools.map((tool) => tool.href)).toEqual(["/tiktok-to-mp3"]);
   });
 });

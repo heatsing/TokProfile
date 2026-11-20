@@ -8,7 +8,6 @@ import {
   SearchCheck,
 } from "lucide-react";
 
-import { HomepageTools } from "@/components/downloader/homepage-tools";
 import { DownloaderWorkspace } from "@/components/downloader/downloader-workspace";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -104,8 +103,6 @@ export async function DownloaderLandingPage({
           </a>
         ))}
       </nav>
-
-      <HomepageTools />
 
       <div className="mx-auto w-[calc(100%-2rem)] max-w-[900px] sm:w-[calc(100%-3rem)]">
         <section className="mx-auto mt-10 max-w-[70ch] text-center sm:mt-12">

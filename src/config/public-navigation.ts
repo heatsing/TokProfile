@@ -8,14 +8,6 @@ export interface PublicNavigationGroup {
   label: string;
 }
 
-interface HomepageToolLink {
-  description: string;
-  href: string;
-  icon: "music";
-  label: string;
-  status: "live" | "planned";
-}
-
 export const directDownloadNavigation = [
   { href: "/#download", label: "Download TikTok Video" },
   { href: "/download-tiktok-stories", label: "Download TikTok Story" },
@@ -39,16 +31,6 @@ export const primaryNavigation: readonly PublicNavigationLink[] = [
   ...directDownloadNavigation,
   ...groupedNavigation[0].items,
   ...groupedNavigation[1].items,
-];
-
-export const homepageTools: readonly HomepageToolLink[] = [
-  {
-    description: "Audio export will appear after real MP3 delivery passes testing.",
-    href: "/tiktok-to-mp3",
-    icon: "music",
-    label: "TikTok to MP3",
-    status: "planned",
-  },
 ];
 
 export const footerNavigation = [

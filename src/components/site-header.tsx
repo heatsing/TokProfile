@@ -54,8 +54,9 @@ export function SiteHeader({
             alt="TokProfile"
             width={180}
             height={60}
+            sizes="(min-width: 1024px) 180px, 156px"
             priority
-            className="h-9 w-auto"
+            className="h-[52px] w-auto lg:h-[60px]"
           />
         </Link>
 
@@ -67,7 +68,7 @@ export function SiteHeader({
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`text-[13px] font-semibold transition-colors ${
+                className={`text-[15px] font-semibold transition-colors ${
                   active ? "text-[#a13c0d]" : "text-[#302923] hover:text-[#a13c0d]"
                 }`}
               >
@@ -81,7 +82,7 @@ export function SiteHeader({
             return (
               <details key={group.label} className="group relative">
                 <summary
-                  className={`flex cursor-pointer list-none items-center gap-1 text-[13px] font-semibold transition-colors marker:hidden [&::-webkit-details-marker]:hidden ${
+                  className={`flex cursor-pointer list-none items-center gap-1 text-[15px] font-semibold transition-colors marker:hidden [&::-webkit-details-marker]:hidden ${
                     active ? "text-[#a13c0d]" : "text-[#302923] hover:text-[#a13c0d]"
                   }`}
                 >
@@ -96,7 +97,7 @@ export function SiteHeader({
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="flex min-h-10 items-center rounded px-3 text-[13px] font-semibold text-[#302923] hover:bg-[#fff4ed] hover:text-[#a13c0d]"
+                      className="flex min-h-10 items-center rounded px-3 text-sm font-semibold text-[#302923] hover:bg-[#fff4ed] hover:text-[#a13c0d]"
                     >
                       {item.label}
                     </Link>
@@ -117,7 +118,7 @@ export function SiteHeader({
           className="inline-flex h-10 items-center gap-2 rounded-[5px] border border-[#e8e2de] px-3 text-[#24211f] transition-colors hover:bg-[#fff4ed] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a13c0d] lg:hidden"
         >
           {open ? <X className="size-4" /> : <Menu className="size-4" />}
-          <span className="text-xs font-bold">{open ? "Close" : "Menu"}</span>
+          <span className="text-sm font-bold">{open ? "Close" : "Menu"}</span>
         </button>
       </div>
 
@@ -130,7 +131,7 @@ export function SiteHeader({
             key={link.href}
             href={link.href}
             onClick={() => setOpen(false)}
-            className="flex min-h-11 items-center justify-center border-r border-[#f2ece8] px-2 text-center text-[11px] font-bold text-[#302923] last:border-r-0 hover:bg-[#fff4ed] hover:text-[#a13c0d]"
+            className="flex min-h-11 items-center justify-center border-r border-[#f2ece8] px-2 text-center text-[13px] font-bold text-[#302923] last:border-r-0 hover:bg-[#fff4ed] hover:text-[#a13c0d]"
           >
             {link.label}
           </Link>
@@ -145,7 +146,7 @@ export function SiteHeader({
         >
           {groupedNavigation.map((group) => (
             <div key={group.label} className="py-1 first:pt-0 last:pb-0">
-              <p className="px-3 py-2 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#a13c0d]">
+              <p className="px-3 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#a13c0d]">
                 {group.label}
               </p>
               {group.items.map((item) => (
@@ -153,7 +154,7 @@ export function SiteHeader({
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-11 items-center rounded px-3 text-[13px] font-semibold text-[#302923] hover:bg-[#fff4ed] hover:text-[#a13c0d]"
+                  className="flex min-h-11 items-center rounded px-3 text-sm font-semibold text-[#302923] hover:bg-[#fff4ed] hover:text-[#a13c0d]"
                 >
                   {item.label}
                 </Link>
