@@ -68,19 +68,13 @@ export function DownloaderWorkspace() {
   }
 
   return (
-    <section
-      aria-label="TikTok video download check"
-      className="rounded-xl border border-[#d9e3e1] bg-white p-5 shadow-[0_8px_30px_rgba(25,70,65,0.05)] sm:p-6"
-    >
+    <section aria-label="TikTok video link check" className="text-left">
       <form onSubmit={handleSubmit}>
-        <label
-          className="block text-[13px] font-extrabold text-[#172a2d]"
-          htmlFor="downloader-url"
-        >
+        <label className="sr-only" htmlFor="downloader-url">
           TikTok video link
         </label>
-        <div className="mt-2 flex flex-col gap-2 sm:flex-row">
-          <div className="flex min-h-[52px] flex-1 items-center rounded-lg border border-[#aebfbc] bg-white p-1 focus-within:border-[#087568] focus-within:ring-2 focus-within:ring-[#087568]/15">
+        <div className="grid gap-1.5 rounded-[5px] bg-white p-[5px] sm:grid-cols-[minmax(0,1fr)_auto]">
+          <div className="flex min-h-[42px] min-w-0 items-center rounded-[3px] bg-white focus-within:shadow-[inset_0_0_0_2px_#eaa27e]">
             <input
               id="downloader-url"
               name="url"
@@ -91,18 +85,18 @@ export function DownloaderWorkspace() {
               type="url"
               value={url}
               onChange={(event) => setUrl(event.target.value)}
-              className="h-11 min-w-0 flex-1 bg-transparent px-3 text-sm text-[#172a2d] outline-none placeholder:text-[#71807e]"
+              className="h-[42px] min-w-0 flex-1 bg-transparent px-3 text-sm text-[#24211f] outline-none placeholder:text-[#68605c]"
             />
             <button
               type="button"
               onClick={handlePaste}
-              className="h-10 rounded-md bg-[#edf5f3] px-4 text-[13px] font-extrabold text-[#087568] transition-colors hover:bg-[#e0efeb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087568]"
+              className="h-[38px] rounded-[3px] bg-[#f6e9e1] px-4 text-[13px] font-bold text-[#703617] transition-colors hover:bg-[#efd8cb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#214b70]"
             >
               Paste
             </button>
           </div>
           <button
-            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-lg bg-[#087568] px-6 text-[13px] font-extrabold text-white transition-colors hover:bg-[#075f55] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087568] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-40"
+            className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-[3px] bg-[#26221f] px-5 text-[13px] font-bold text-white transition-colors hover:bg-[#463830] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#214b70] disabled:cursor-not-allowed disabled:opacity-60"
             disabled={state.status === "loading"}
             type="submit"
           >
@@ -111,16 +105,16 @@ export function DownloaderWorkspace() {
             ) : (
               <Download className="size-4" aria-hidden="true" />
             )}
-            {state.status === "loading" ? "Checking…" : "Check video"}
+            {state.status === "loading" ? "Checking…" : "Check video link"}
           </button>
         </div>
         <p aria-live="polite" className="sr-only">
           {pasteMessage}
         </p>
 
-        <label className="mt-3 flex cursor-pointer items-start gap-2 text-xs leading-5 text-[#5c6c6a]">
+        <label className="mt-3 flex cursor-pointer items-start gap-2 text-xs leading-5 text-[#fff5ee]">
           <input
-            className="mt-0.5 size-4 shrink-0 accent-[#087568]"
+            className="mt-0.5 size-4 shrink-0 accent-[#26221f]"
             name="rightsConfirmed"
             required
             type="checkbox"
@@ -133,7 +127,7 @@ export function DownloaderWorkspace() {
 
       <div aria-live="polite">
         {state.status === "error" ? (
-          <div className="mt-5 flex gap-3 rounded-lg border border-amber-300 bg-amber-50 p-4 text-left">
+          <div className="mt-4 flex gap-3 rounded-[5px] border border-[#f1c5ad] bg-[#fff7f1] p-4 text-left">
             <AlertTriangle
               className="mt-0.5 size-5 shrink-0 text-amber-700"
               aria-hidden="true"
@@ -150,12 +144,12 @@ export function DownloaderWorkspace() {
         ) : null}
 
         {state.status === "success" ? (
-          <div className="mt-5 border-t border-[#dbe6e3] pt-5 text-left">
-            <div className="flex items-center gap-2 text-[13px] font-extrabold text-[#087568]">
+          <div className="mt-4 rounded-[5px] bg-white p-4 text-left text-[#24211f]">
+            <div className="flex items-center gap-2 text-[13px] font-extrabold text-[#a13c0d]">
               <CheckCircle2 className="size-5" aria-hidden="true" />
               Valid public TikTok video URL
             </div>
-            <dl className="mt-4 grid gap-3 rounded-lg bg-[#f1f8f6] p-4 sm:grid-cols-2">
+            <dl className="mt-4 grid gap-3 rounded-[4px] bg-[#fff4ed] p-4 sm:grid-cols-2">
               <div>
                 <dt className="text-xs font-bold uppercase tracking-wider text-[#657572]">
                   Creator
@@ -187,7 +181,7 @@ export function DownloaderWorkspace() {
 
             <p className="mt-4 flex items-start gap-2 text-xs leading-5 text-[#657572]">
               <Clock3
-                className="mt-0.5 size-3.5 shrink-0 text-[#087568]"
+                className="mt-0.5 size-3.5 shrink-0 text-[#a13c0d]"
                 aria-hidden="true"
               />
               No media bytes are requested or stored by the current checker.

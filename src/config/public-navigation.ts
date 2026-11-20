@@ -1,16 +1,20 @@
-export interface PublicNavigationItem {
-  href?: string;
-  label: string;
-  status: "live" | "planned";
-}
+export type PublicNavigationItem =
+  { href: string; label: string; status: "live" } | { label: string; status: "planned" };
 
-export const primaryNavigation = [
-  { href: "/", label: "Video Link Checker", status: "live" },
-  { label: "TikTok to MP3", status: "planned" },
+export const primaryNavigation: readonly PublicNavigationItem[] = [
+  { label: "Download TikTok Stories", status: "planned" },
+  { label: "Download TikTok MP3", status: "planned" },
   { label: "Story Viewer", status: "planned" },
-  { label: "Story Downloader", status: "planned" },
   { label: "Profile Viewer", status: "planned" },
-] as const satisfies readonly PublicNavigationItem[];
+];
+
+export const utilityFooterNavigation = [
+  { href: "/help", label: "Help" },
+  { href: "/contact", label: "Contact" },
+  { href: "/copyright", label: "Copyright" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
+] as const;
 
 export const homepageTools = [
   {

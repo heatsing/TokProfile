@@ -100,6 +100,45 @@
     "temporary media download"
   ],
   "ui": {
+    "introParagraphs": [
+      "Use TokProfile when you want to confirm that a copied address identifies one public TikTok video. Paste the full link above to check its host, creator path and video identifier.",
+      "If you copied a creator profile or search page, return to the individual post first. The current result validates the URL structure; it does not fetch the video or create a media file."
+    ],
+    "callout": {
+      "title": "Why Check a TikTok Video Link?",
+      "description": "A clean video URL helps you confirm which public post you are referencing before an authorized review, research or creator workflow. Always keep ownership, permission and platform restrictions separate from technical URL validity."
+    },
+    "deviceGuides": [
+      {
+        "id": "android",
+        "title": "Android instructions",
+        "description": "Copy the link from the individual public video, then return to TokProfile in your browser.",
+        "steps": [
+          "In TikTok, open the individual public video and tap Share.",
+          "Choose Copy link, then switch to your browser.",
+          "Paste the full link above, confirm your rights and select Check video link."
+        ]
+      },
+      {
+        "id": "desktop",
+        "title": "Windows & Mac instructions",
+        "description": "Open the individual video in your browser, copy its full address and paste it into the checker. Do not submit a creator profile, search page or unrelated short link."
+      },
+      {
+        "id": "iphone",
+        "title": "iPhone & iPad instructions",
+        "description": "Copy the link from the individual public video, then return to TokProfile in Safari.",
+        "steps": [
+          "Open the public video in TikTok and tap Share, then Copy link.",
+          "Return to Safari and paste the address into TokProfile.",
+          "Confirm your rights and select Check video link to review the parsed result."
+        ]
+      }
+    ],
+    "followOn": {
+      "title": "Need Creator Performance Context?",
+      "description": "After identifying the correct public post or creator, use TokProfile's transparent calculator to estimate engagement from follower and interaction totals."
+    },
     "howToSteps": [
       {
         "title": "1. Copy one video link",

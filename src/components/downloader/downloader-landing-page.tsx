@@ -1,14 +1,14 @@
 import Link from "next/link";
 import {
-  ArrowRight,
   CheckCircle2,
-  ChevronDown,
-  ChevronRight,
-  ShieldCheck,
+  ClipboardPaste,
+  Copy,
+  Link2,
+  Play,
+  SearchCheck,
 } from "lucide-react";
 
 import { DownloaderWorkspace } from "@/components/downloader/downloader-workspace";
-import { HomepageTools } from "@/components/downloader/homepage-tools";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { publicEnv } from "@/config/env";
@@ -20,17 +20,25 @@ interface HowToStep extends ToolPageContentItem {
   cues: string[];
 }
 
-interface DownloaderUi {
-  downloadLocations: ToolPageContentItem[];
-  helpItems: ToolPageContentItem[];
-  howToSteps: HowToStep[];
-  relatedToolDescriptions: Record<string, string>;
-  safetyDescription: string;
+interface DeviceGuide extends ToolPageContentItem {
+  id: string;
+  steps?: string[];
 }
+
+interface DownloaderUi {
+  callout: ToolPageContentItem;
+  deviceGuides: DeviceGuide[];
+  downloadLocations: ToolPageContentItem[];
+  followOn: ToolPageContentItem;
+  howToSteps: HowToStep[];
+  introParagraphs: string[];
+}
+
+const stepIcons = [Copy, ClipboardPaste, SearchCheck] as const;
 
 export async function DownloaderLandingPage({
   canonicalRoute,
-  showBreadcrumb = true,
+  showBreadcrumb: _showBreadcrumb = true,
 }: {
   canonicalRoute: string;
   showBreadcrumb?: boolean;
@@ -42,167 +50,294 @@ export async function DownloaderLandingPage({
   });
 
   return (
-    <main className="min-h-screen overflow-hidden bg-white text-[#172a2d]">
+    <main className="min-h-screen bg-white text-[#24211f]">
       <SiteHeader variant="utility" />
 
-      <section className="border-b border-[#e2ece9] bg-[#eef8f6]">
-        <div className="container flex flex-col items-center py-14 text-center sm:py-20">
-          {showBreadcrumb ? (
-            <nav
-              aria-label="Breadcrumb"
-              className="flex items-center gap-2 text-xs font-semibold text-[#637673]"
-            >
-              <Link href="/" className="transition-colors hover:text-[#087568]">
-                Home
-              </Link>
-              <ChevronRight className="size-3.5" aria-hidden="true" />
-              <span aria-current="page">{page.breadcrumb}</span>
-            </nav>
-          ) : null}
-
-          <h1
-            className={`${showBreadcrumb ? "mt-7" : ""} font-display text-[clamp(2rem,4.5vw,2.75rem)] font-extrabold leading-tight tracking-[-0.045em]`}
-          >
+      <section className="bg-[#bb4a12] py-7 text-white sm:py-8">
+        <div className="mx-auto w-[calc(100%-2rem)] max-w-[900px] text-center sm:w-[calc(100%-3rem)]">
+          <h1 className="text-[clamp(1.9rem,4vw,2.75rem)] font-bold leading-[1.24] tracking-[-0.025em]">
             {page.h1}
           </h1>
-          <p className="mt-3 max-w-2xl text-[13px] leading-5 text-[#5c6c6a] sm:text-sm">
+          <p className="mx-auto mt-2 max-w-[680px] text-sm leading-6 text-[#fff8f4] sm:text-base">
             {page.intro}
           </p>
 
-          <div className="mt-7 w-full max-w-[760px] text-left">
+          <aside
+            aria-labelledby="link-help-title"
+            className="mx-auto mt-4 grid min-h-[138px] w-full max-w-[760px] grid-cols-[0.82fr_1.18fr] overflow-hidden rounded-md bg-white text-left text-[#24211f] sm:min-h-[164px]"
+          >
+            <div className="grid min-h-[138px] place-items-center bg-[#fff1e7] sm:min-h-[164px]">
+              <div className="w-[72%] max-w-[178px] -rotate-[5deg] rounded-[10px] border border-[#ead5c8] bg-white p-2 shadow-[0_6px_19px_rgba(136,57,20,0.13)] sm:p-2.5">
+                <div className="grid place-items-center rounded-[5px] bg-[#28221f] py-4 sm:py-5">
+                  <span className="grid size-9 place-items-center rounded-full border border-white/50">
+                    <Play
+                      className="ml-0.5 size-4 fill-white text-white"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </div>
+                <p className="mt-1.5 text-center text-[10px] font-bold text-[#8f330c] sm:text-xs">
+                  Share · Copy link
+                </p>
+              </div>
+            </div>
+            <div className="self-center px-3 py-3 sm:px-8 sm:py-4">
+              <h2
+                id="link-help-title"
+                className="text-[clamp(1rem,2.5vw,1.4rem)] font-bold leading-tight tracking-[-0.025em]"
+              >
+                Where do I get the video link?
+              </h2>
+              <p className="mt-1.5 text-[11px] leading-4 text-[#56514e] sm:text-sm sm:leading-5">
+                Open the video in TikTok. Tap <strong>Share</strong>, then{" "}
+                <strong>Copy link</strong>.
+              </p>
+              <a
+                href="#how"
+                className="mt-1 inline-block text-[11px] font-bold text-[#a13c0d] underline underline-offset-4 sm:text-[13px]"
+              >
+                See the steps
+              </a>
+            </div>
+          </aside>
+
+          <div className="mx-auto mt-2 w-full max-w-[760px]">
             <DownloaderWorkspace />
           </div>
         </div>
       </section>
 
-      <HomepageTools />
+      <nav
+        aria-label="Video link instructions"
+        className="mx-auto flex w-[calc(100%-2rem)] max-w-[900px] flex-wrap items-center justify-center gap-x-4 gap-y-1 border-b border-[#e8e2de] py-4 text-center text-[13px] sm:w-[calc(100%-3rem)]"
+      >
+        <span className="font-semibold">Using a phone?</span>
+        {ui.deviceGuides.map((guide) => (
+          <a
+            key={guide.id}
+            href={`#${guide.id}`}
+            className="font-semibold text-[#a13c0d] underline-offset-4 hover:underline"
+          >
+            {guide.title}
+          </a>
+        ))}
+      </nav>
 
-      <div className="container max-w-[1120px] py-12 sm:py-16">
-        <section aria-labelledby="how-to-download-title">
+      <div className="mx-auto w-[calc(100%-2rem)] max-w-[900px] sm:w-[calc(100%-3rem)]">
+        <section className="mx-auto mt-10 max-w-[70ch] text-center sm:mt-12">
+          <h2 className="text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]">
+            Check TikTok Video Links with TokProfile
+          </h2>
+          {ui.introParagraphs.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="mt-3 text-sm leading-6 text-[#56514e] sm:text-[15px]"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </section>
+
+        <section
+          id="how"
+          className="mt-10 scroll-mt-5 sm:mt-12"
+          aria-labelledby="how-title"
+        >
           <h2
-            id="how-to-download-title"
-            className="font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl"
+            id="how-title"
+            className="text-center text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]"
           >
             How to Check a TikTok Video Link
           </h2>
-          <ol className="mt-6 grid gap-4 lg:grid-cols-3">
-            {ui.howToSteps.map((step) => (
-              <li
-                key={step.title}
-                className="rounded-xl border border-[#dbe3e1] bg-white p-4 sm:p-5"
-              >
-                <div className="flex min-h-20 items-center justify-center gap-2 rounded-lg bg-[#eef7f5] px-3">
-                  {step.cues.map((cue, index) => (
-                    <span key={cue} className="contents">
-                      {index > 0 ? (
-                        <ArrowRight
-                          className="size-3.5 text-[#087568]"
-                          aria-hidden="true"
-                        />
-                      ) : null}
-                      <span className="rounded-md border border-[#d4e0dd] bg-white px-3 py-2 text-[11px] font-extrabold text-[#087568]">
-                        {cue}
-                      </span>
-                    </span>
-                  ))}
-                </div>
-                <h3 className="mt-4 text-sm font-extrabold">{step.title}</h3>
-                <p className="mt-1 text-[13px] leading-5 text-[#63716f]">
-                  {step.description}
-                </p>
-              </li>
-            ))}
+          <ol className="mt-5 grid gap-0 sm:grid-cols-3 sm:gap-8">
+            {ui.howToSteps.map((step, index) => {
+              const Icon = stepIcons[index] ?? Link2;
+              return (
+                <li
+                  key={step.title}
+                  className="grid grid-cols-[34px_1fr] items-center border-b border-[#e8e2de] py-3 text-left last:border-b-0 sm:block sm:border-0 sm:px-1 sm:py-1 sm:text-center"
+                >
+                  <Icon className="size-6 text-[#a13c0d] sm:mx-auto" aria-hidden="true" />
+                  <h3 className="text-sm font-bold tracking-[-0.01em] sm:mt-3">
+                    {step.title.replace(/^\d+\.\s*/, "")}
+                  </h3>
+                  <p className="col-start-2 mt-1 text-[13px] leading-5 text-[#56514e] sm:mt-1.5 sm:text-sm">
+                    {step.description}
+                  </p>
+                </li>
+              );
+            })}
           </ol>
         </section>
 
-        <div className="my-12 border-t border-[#dde5e3] sm:my-14" />
-
         <section
-          id="download-help"
-          className="grid scroll-mt-24 gap-10 lg:grid-cols-2 lg:gap-16"
+          className="mt-10 grid items-start gap-7 sm:mt-12 sm:grid-cols-2 sm:gap-8"
+          aria-labelledby="result-title"
         >
-          <div>
-            <h2 className="font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl">
-              What the Result Shows
-            </h2>
-            <div className="mt-6 space-y-4">
-              {ui.downloadLocations.map((item) => (
-                <div key={item.title}>
-                  <h3 className="text-sm font-extrabold">{item.title}</h3>
-                  <p className="mt-1 text-[13px] leading-5 text-[#63716f]">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
+          <div className="relative grid min-h-[180px] place-items-center overflow-hidden rounded bg-[#28221f] sm:min-h-[195px]">
+            <span className="absolute size-[260px] rounded-full border border-white/15 shadow-[0_0_0_23px_rgba(255,255,255,0.045),0_0_0_47px_rgba(255,255,255,0.035)]" />
+            <div className="relative grid aspect-[1.86] w-[58%] max-w-[230px] place-items-center rounded-[9px] border border-[#f6ae8c] bg-[#df642a] shadow-[0_12px_26px_rgba(0,0,0,0.27)]">
+              <span className="grid size-10 place-items-center rounded-full border border-white/50">
+                <SearchCheck className="size-5 text-white" aria-hidden="true" />
+              </span>
+              <span className="absolute bottom-2.5 left-3 right-3 h-[3px] rounded bg-[linear-gradient(90deg,#fff_42%,rgba(255,255,255,0.35)_42%)]" />
             </div>
+            <span className="absolute left-[62%] top-[62%] inline-flex items-center gap-1 rounded bg-white px-2 py-1 text-xs font-bold text-[#8f330c]">
+              <CheckCircle2 className="size-3.5" aria-hidden="true" />
+              Valid link
+            </span>
           </div>
           <div>
-            <h2 className="font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl">
-              TikTok Link Check Help
+            <h2
+              id="result-title"
+              className="text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]"
+            >
+              What the Checker Gives You
             </h2>
-            <div className="mt-6 space-y-4">
-              {ui.helpItems.map((item) => (
-                <div key={item.title}>
-                  <h3 className="text-sm font-extrabold">{item.title}</h3>
-                  <p className="mt-1 text-[13px] leading-5 text-[#63716f]">
+            <dl className="mt-2">
+              {ui.downloadLocations.map((item) => (
+                <div
+                  key={item.title}
+                  className="grid grid-cols-[minmax(110px,0.85fr)_1.35fr] gap-3 border-b border-[#e8e2de] py-2"
+                >
+                  <dt className="text-[13px] font-semibold">{item.title}</dt>
+                  <dd className="text-[13px] leading-5 text-[#56514e]">
                     {item.description}
-                  </p>
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
         </section>
 
-        <aside className="mt-10 flex gap-3 rounded-xl border border-[#cfe2dd] bg-[#f1f8f6] p-5">
-          <ShieldCheck
-            className="mt-0.5 size-5 shrink-0 text-[#087568]"
-            aria-hidden="true"
-          />
-          <div>
-            <p className="text-[13px] font-extrabold">Safety notice</p>
-            <p className="mt-1 text-[13px] leading-5 text-[#5d706c]">
-              {ui.safetyDescription}
-            </p>
+        <section className="mt-10 sm:mt-12" aria-labelledby="before-title">
+          <h2
+            id="before-title"
+            className="text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]"
+          >
+            Before You Check a Link
+          </h2>
+          <div className="mt-3">
+            {page.tips.map((tip) => (
+              <article key={tip.title} className="border-b border-[#e8e2de] py-4">
+                <h3 className="text-[15px] font-bold text-[#a13c0d]">{tip.title}</h3>
+                <p className="mt-1.5 text-sm leading-6 text-[#56514e]">
+                  {tip.description}
+                </p>
+              </article>
+            ))}
           </div>
+        </section>
+
+        <aside className="mt-10 rounded-[5px] bg-[#f5f4f3] px-5 py-6 text-center sm:mt-12 sm:px-8">
+          <h2 className="text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]">
+            {ui.callout.title}
+          </h2>
+          <p className="mx-auto mt-3 max-w-[69ch] text-sm leading-6 text-[#56514e]">
+            {ui.callout.description}
+          </p>
         </aside>
 
-        <div className="my-12 border-t border-[#dde5e3] sm:my-14" />
-
-        <section id="faq" className="scroll-mt-24" aria-labelledby="faq-title">
-          <div className="mx-auto max-w-[780px]">
-            <h2
-              id="faq-title"
-              className="font-display text-xl font-extrabold tracking-[-0.035em] sm:text-2xl"
-            >
-              Frequently Asked Questions
-            </h2>
-            <div className="mt-5 border-t border-[#dbe3e1]">
-              {page.faq.map((faq) => (
-                <details key={faq.question} className="group border-b border-[#dbe3e1]">
-                  <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 py-4 text-[13px] font-extrabold marker:hidden sm:text-sm [&::-webkit-details-marker]:hidden">
-                    <span className="flex items-center gap-2">
-                      <ChevronDown
-                        className="size-4 shrink-0 -rotate-90 text-[#294442] transition-transform group-open:rotate-0"
-                        aria-hidden="true"
-                      />
-                      {faq.question}
-                    </span>
-                  </summary>
-                  <p className="pb-5 pl-6 pr-4 text-[13px] leading-5 text-[#63716f]">
-                    {faq.answer}
+        <section className="mt-10 sm:mt-12" aria-labelledby="device-title">
+          <h2
+            id="device-title"
+            className="text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]"
+          >
+            Copy a TikTok Video Link on Your Phone or Computer
+          </h2>
+          <nav
+            aria-label="Device instructions"
+            className="mt-3 flex flex-wrap gap-x-4 gap-y-2"
+          >
+            {ui.deviceGuides.map((guide) => (
+              <a
+                key={guide.id}
+                href={`#${guide.id}`}
+                className="text-[13px] font-semibold text-[#a13c0d] underline-offset-4 hover:underline"
+              >
+                {guide.title}
+              </a>
+            ))}
+          </nav>
+          <div className="mt-2">
+            {ui.deviceGuides.map((guide) => (
+              <article
+                key={guide.id}
+                id={guide.id}
+                className="scroll-mt-5 border-b border-[#e8e2de] py-4"
+              >
+                <h3 className="text-base font-bold text-[#a13c0d]">{guide.title}</h3>
+                {guide.steps ? (
+                  <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm leading-6 text-[#56514e]">
+                    {guide.steps.map((step) => (
+                      <li key={step}>{step}</li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p className="mt-2 text-sm leading-6 text-[#56514e]">
+                    {guide.description}
                   </p>
-                </details>
-              ))}
-            </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
 
-            <p className="mt-6 flex items-start gap-2 rounded-lg bg-[#f4f8f7] p-4 text-xs leading-5 text-[#63716f]">
-              <CheckCircle2
-                className="mt-0.5 size-4 shrink-0 text-[#087568]"
-                aria-hidden="true"
-              />
-              This tool validates supported public video links. It does not fetch the
-              video, create a file, bypass access controls or grant reuse rights.
-            </p>
+        <section className="mt-10 sm:mt-12" aria-labelledby="follow-on-title">
+          <h2
+            id="follow-on-title"
+            className="text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]"
+          >
+            {ui.followOn.title}
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-[#56514e]">
+            {ui.followOn.description}{" "}
+            <Link
+              href="/tiktok-engagement-rate-calculator"
+              className="font-semibold text-[#a13c0d] underline underline-offset-4"
+            >
+              Open the engagement calculator
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section className="mt-10 sm:mt-12" aria-labelledby="faq-title">
+          <h2
+            id="faq-title"
+            className="text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]"
+          >
+            Frequently Asked Questions
+          </h2>
+          <div className="mt-3 border-t border-[#e8e2de]">
+            {page.faq.map((faq) => (
+              <details key={faq.question} className="border-b border-[#e8e2de]">
+                <summary className="cursor-pointer py-3 text-sm font-semibold">
+                  {faq.question}
+                </summary>
+                <p className="px-4 pb-4 text-sm leading-6 text-[#56514e]">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-10 sm:mt-12" aria-labelledby="related-title">
+          <h2
+            id="related-title"
+            className="text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]"
+          >
+            More TokProfile Tools and Guides
+          </h2>
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+            {page.relatedTools.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="text-sm font-semibold text-[#a13c0d] underline-offset-4 hover:underline"
+              >
+                {tool.label}
+              </Link>
+            ))}
           </div>
         </section>
       </div>

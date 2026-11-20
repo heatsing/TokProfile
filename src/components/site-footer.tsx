@@ -1,13 +1,30 @@
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 
-import { footerNavigation } from "@/config/public-navigation";
+import { footerNavigation, utilityFooterNavigation } from "@/config/public-navigation";
 
-export function SiteFooter({
-  variant: _variant = "default",
-}: {
-  variant?: "default" | "utility";
-}) {
+export function SiteFooter({ variant = "default" }: { variant?: "default" | "utility" }) {
+  if (variant === "utility") {
+    return (
+      <footer className="mt-12 border-t border-[#e8e2de] bg-white text-[#56514e]">
+        <div className="container flex max-w-[1120px] flex-col gap-4 py-6 text-[13px] sm:flex-row sm:items-center sm:justify-between">
+          <p>TokProfile is independent of TikTok and ByteDance.</p>
+          <nav aria-label="Help and policies" className="flex flex-wrap gap-x-4 gap-y-2">
+            {utilityFooterNavigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-[#56514e] underline-offset-4 hover:text-[#a13c0d] hover:underline"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className="border-t border-[#dbe6e3] bg-[#f7faf9] text-[#294442]">
       <div className="container py-10 sm:py-12">
