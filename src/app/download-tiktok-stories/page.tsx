@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
+import { Film } from "lucide-react";
 
-import { ToolStatusPage } from "@/components/tool-status-page";
+import { ToolInput } from "@/components/utility-tool/tool-input";
+import { ToolLanding } from "@/components/utility-tool/tool-landing";
+import { storyDownloadContent } from "@/data/navigation-tool-content";
 
 export const metadata: Metadata = {
-  title: "Download TikTok Story — Tool Status",
-  description:
-    "Check the current availability of TokProfile's TikTok Story download workflow and its public-data limitations.",
+  title: storyDownloadContent.title,
+  description: storyDownloadContent.description,
   alternates: { canonical: "/download-tiktok-stories" },
   robots: { follow: true, index: false },
 };
 
 export default function DownloadTikTokStoriesPage() {
   return (
-    <ToolStatusPage
-      title="Download TikTok Story"
-      description="Save an authorized public TikTok Story after real Story lookup and file delivery have passed verification."
-      inputLabel="Story links"
-      expectedResult="a Story media file"
+    <ToolLanding
+      content={storyDownloadContent}
+      icon={Film}
+      workspace={<ToolInput kind="story" />}
     />
   );
 }

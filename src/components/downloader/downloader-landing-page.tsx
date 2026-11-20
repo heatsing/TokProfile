@@ -11,6 +11,10 @@ import {
 import { DownloaderWorkspace } from "@/components/downloader/downloader-workspace";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import {
+  utilityToolColumn,
+  utilityToolHero,
+} from "@/components/utility-tool/tool-landing";
 import { publicEnv } from "@/config/env";
 import { buildToolPageStructuredData } from "@/services/content/tool-page-seo";
 import { requireToolPage } from "@/services/content/tool-pages";
@@ -53,11 +57,8 @@ export async function DownloaderLandingPage({
     <main className="min-h-screen bg-white text-[#24211f]">
       <SiteHeader variant="utility" />
 
-      <section
-        id="download"
-        className="scroll-mt-24 bg-[#e66f13] py-12 text-white sm:py-16"
-      >
-        <div className="mx-auto w-[calc(100%-2rem)] max-w-[900px] text-center sm:w-[calc(100%-3rem)]">
+      <section id="download" className={utilityToolHero}>
+        <div className={`${utilityToolColumn} text-center`}>
           <h1 className="text-[clamp(1.9rem,4vw,2.75rem)] font-bold leading-[1.24] tracking-[-0.025em]">
             {page.h1}
           </h1>
@@ -104,7 +105,7 @@ export async function DownloaderLandingPage({
         ))}
       </nav>
 
-      <div className="mx-auto w-[calc(100%-2rem)] max-w-[900px] sm:w-[calc(100%-3rem)]">
+      <div className={utilityToolColumn}>
         <section className="mx-auto mt-10 max-w-[70ch] text-center sm:mt-12">
           <h2 className="text-[clamp(1.3rem,2.7vw,1.75rem)] font-bold leading-tight tracking-[-0.025em]">
             Check TikTok Video Links with TokProfile
